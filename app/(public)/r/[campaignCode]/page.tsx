@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Sparkles, MessageSquare, ArrowRight, ShieldCheck, CheckCircle2 } from "lucide-react";
 import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
+import { GlowCursor } from "@/components/shared/GlowCursor";
 import { CampaignBanner } from "@/components/public/CampaignBanner";
 import { DesignCard } from "@/components/public/DesignCard";
 import { resolveCampaignPresentation } from "@/lib/campaign-resolver";
@@ -43,7 +44,8 @@ export default async function CampaignOutreachPage({ params, searchParams }: Cam
   );
 
   return (
-    <div className="min-h-screen bg-[#080808] text-[#F7F7F5] flex flex-col font-sans">
+    <div className="min-h-screen bg-[#F5F1DC] text-[#0B1226] flex flex-col font-sans relative">
+      <GlowCursor primaryColor="#0046FF" accentColor="#FF8040" secondaryColor="#001BB7" />
       <Navbar
         activeNiche={validNicheId}
         businessName={presentation.businessName}

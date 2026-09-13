@@ -20,6 +20,7 @@ import { NicheCard } from "@/components/public/NicheCard";
 import { DesignCard } from "@/components/public/DesignCard";
 import { CustomOnboardingModal } from "@/components/shared/CustomOnboardingModal";
 import { AuthPromptModal } from "@/components/shared/AuthPromptModal";
+import { GlowCursor } from "@/components/shared/GlowCursor";
 import { NICHES, designRegistry, NicheId } from "@/lib/design-registry";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
@@ -48,7 +49,8 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F1DC] text-[#0B1226] flex flex-col font-sans selection:bg-[#0046FF] selection:text-white">
+    <div className="min-h-screen bg-[#F5F1DC] text-[#0B1226] flex flex-col font-sans selection:bg-[#0046FF] selection:text-white relative">
+      <GlowCursor primaryColor="#0046FF" accentColor="#FF8040" secondaryColor="#001BB7" />
       <Navbar />
 
       {/* Hero Section */}
