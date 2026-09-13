@@ -2,39 +2,32 @@
 
 /* ========================================
    REVNTRIX — Brand Design Tokens
-   Locked Palette: #001BB7, #0046FF, #FF8040, #F5F1DC
+   Locked Palette: #E3F2FD, #90CAF9, #2196F3, #0D47A1
    ======================================== */
 
 @theme {
-  /* Brand Primary Blues */
-  --color-brand-primary: #001BB7;
-  --color-brand-blue: #0046FF;
-  --color-brand-blue-bright: #336CFF;
-  --color-brand-blue-muted: rgba(0, 70, 255, 0.12);
+  /* Brand Blues Scale */
+  --color-brand-deep: #0D47A1;
+  --color-brand-primary: #2196F3;
+  --color-brand-soft: #90CAF9;
+  --color-brand-bg: #E3F2FD;
 
-  /* Brand Coral/Orange Accent */
-  --color-brand-accent: #FF8040;
-  --color-brand-accent-bright: #FF9966;
-  --color-brand-accent-deep: #E56725;
-  --color-brand-accent-muted: rgba(255, 128, 64, 0.15);
-
-  /* Brand Background & Surfaces */
-  --color-brand-bg: #F5F1DC;
+  /* Surfaces & Borders */
   --color-brand-surface: #FFFFFF;
-  --color-brand-surface-muted: #ECE6D0;
-  --color-brand-surface-raised: #FFFFFF;
-  --color-brand-border: #DDD5BE;
+  --color-brand-surface-muted: #D9EDFC;
+  --color-brand-border: #90CAF9;
 
-  /* Brand Text Scale */
-  --color-brand-text: #0B1226;
-  --color-brand-text-muted: #4F5D75;
-  --color-brand-text-light: #F5F1DC;
+  /* Text Scale */
+  --color-brand-text: #0D47A1;
+  --color-brand-text-dark: #0A2E6B;
+  --color-brand-text-muted: #3A608F;
+  --color-brand-text-light: #FFFFFF;
 
   /* Semantic Colors */
   --color-success: #16A34A;
   --color-warning: #D97706;
   --color-error: #DC2626;
-  --color-info: #0046FF;
+  --color-info: #2196F3;
 
   /* Typography */
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
@@ -53,8 +46,8 @@
   --radius-full: 9999px;
 
   /* Shadows */
-  --shadow-glow: 0 4px 20px rgba(0, 70, 255, 0.12);
-  --shadow-glow-accent: 0 4px 20px rgba(255, 128, 64, 0.2);
+  --shadow-glow: 0 4px 20px rgba(33, 150, 243, 0.15);
+  --shadow-glow-strong: 0 4px 25px rgba(13, 71, 161, 0.2);
 
   /* Transitions */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -95,7 +88,7 @@ html {
 
 body {
   background-color: var(--color-brand-bg);
-  color: var(--color-brand-text);
+  color: var(--color-brand-text-dark);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -106,7 +99,7 @@ body {
    ======================================== */
 
 :focus-visible {
-  outline: 2px solid var(--color-brand-blue);
+  outline: 2px solid var(--color-brand-primary);
   outline-offset: 2px;
 }
 
@@ -120,16 +113,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-brand-surface-muted);
+  background: var(--color-brand-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-brand-border);
+  background: var(--color-brand-soft);
   border-radius: var(--radius-full);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-brand-text-muted);
+  background: var(--color-brand-primary);
 }
 
 /* ========================================
@@ -137,8 +130,8 @@ body {
    ======================================== */
 
 ::selection {
-  background-color: rgba(0, 70, 255, 0.25);
-  color: var(--color-brand-primary);
+  background-color: rgba(33, 150, 243, 0.25);
+  color: var(--color-brand-deep);
 }
 
 /* ========================================
@@ -146,25 +139,14 @@ body {
    ======================================== */
 
 .text-gradient-brand {
-  background: linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-blue));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.text-gradient-accent {
-  background: linear-gradient(135deg, var(--color-brand-accent-bright), var(--color-brand-accent-deep));
+  background: linear-gradient(135deg, var(--color-brand-deep), var(--color-brand-primary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .bg-gradient-brand {
-  background: linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-blue));
-}
-
-.bg-gradient-accent {
-  background: linear-gradient(135deg, var(--color-brand-accent), var(--color-brand-accent-deep));
+  background: linear-gradient(135deg, var(--color-brand-deep), var(--color-brand-primary));
 }
 
 /* ========================================

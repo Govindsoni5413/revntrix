@@ -49,13 +49,13 @@ export function FallbackHandoff({
   };
 
   return (
-    <div className="flex flex-col gap-4 bg-[#F5F1DC] border border-[#DDD5BE] rounded-2xl p-5">
+    <div className="flex flex-col gap-4 bg-[#E3F2FD]/50 border border-[#90CAF9] rounded-2xl p-5">
       <div className="flex flex-col gap-1">
-        <h4 className="text-sm font-bold text-[#0B1226] flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#16A34A]" />
+        <h4 className="text-sm font-bold text-[#0D47A1] flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-[#2196F3]" />
           Choose your preferred conversation channel
         </h4>
-        <p className="text-xs text-[#4F5D75]">
+        <p className="text-xs text-[#0D47A1]/70">
           Connect instantly with our design directors. WhatsApp is fastest (typically &lt;5 min response).
         </p>
       </div>
@@ -66,20 +66,20 @@ export function FallbackHandoff({
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => onSuccess?.()}
-        className="flex items-center justify-between p-3.5 rounded-xl bg-[#25D366]/15 border border-[#25D366]/40 hover:bg-[#25D366]/25 transition-all text-[#0B1226] group min-h-[48px]"
+        className="flex items-center justify-between p-3.5 rounded-xl bg-[#25D366]/15 border border-[#25D366]/40 hover:bg-[#25D366]/25 transition-all text-[#0D47A1] group min-h-[48px]"
       >
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-full bg-[#25D366] flex items-center justify-center text-white">
             <MessageSquare className="w-5 h-5 fill-current" />
           </div>
           <div className="text-left">
-            <div className="text-sm font-bold text-[#0B1226] group-hover:text-[#16A34A] transition-colors">
+            <div className="text-sm font-bold text-[#0D47A1] group-hover:text-[#25D366] transition-colors">
               Continue to WhatsApp
             </div>
-            <div className="text-xs text-[#4F5D75]">Opens chat with pre-filled design context</div>
+            <div className="text-xs text-[#0D47A1]/70">Opens chat with pre-filled design context</div>
           </div>
         </div>
-        <ExternalLink className="w-4 h-4 text-[#4F5D75] group-hover:text-[#16A34A] transition-colors" />
+        <ExternalLink className="w-4 h-4 text-[#0D47A1]/60 group-hover:text-[#25D366] transition-colors" />
       </a>
 
       {/* Alternative Channels Grid */}
@@ -88,12 +88,12 @@ export function FallbackHandoff({
         <a
           href={mailtoUrl}
           onClick={() => onSuccess?.()}
-          className="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-[#DDD5BE] hover:border-[#0046FF] text-[#0B1226] transition-all text-xs font-semibold min-h-[44px]"
+          className="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-[#90CAF9] hover:border-[#2196F3] text-[#0D47A1] transition-all text-xs font-semibold min-h-[44px]"
         >
-          <Mail className="w-4 h-4 text-[#0046FF] shrink-0" />
+          <Mail className="w-4 h-4 text-[#2196F3] shrink-0" />
           <div className="truncate">
-            <span className="block text-[#0B1226]">Email Agency</span>
-            <span className="text-[10px] text-[#4F5D75] truncate">{salesEmail}</span>
+            <span className="block text-[#0D47A1]">Email Agency</span>
+            <span className="text-[10px] text-[#0D47A1]/70 truncate">{salesEmail}</span>
           </div>
         </a>
 
@@ -101,33 +101,33 @@ export function FallbackHandoff({
         <button
           type="button"
           onClick={handleCopy}
-          className="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-[#DDD5BE] hover:border-[#0046FF] text-[#0B1226] transition-all text-xs font-semibold text-left min-h-[44px]"
+          className="flex items-center gap-2.5 p-3 rounded-xl bg-white border border-[#90CAF9] hover:border-[#2196F3] text-[#0D47A1] transition-all text-xs font-semibold text-left min-h-[44px]"
         >
           {copied ? (
-            <Check className="w-4 h-4 text-[#16A34A] shrink-0" />
+            <Check className="w-4 h-4 text-[#2196F3] shrink-0" />
           ) : (
-            <Copy className="w-4 h-4 text-[#0046FF] shrink-0" />
+            <Copy className="w-4 h-4 text-[#2196F3] shrink-0" />
           )}
           <div className="truncate">
-            <span className="block text-[#0B1226]">
+            <span className="block text-[#0D47A1]">
               {copied ? "Message Copied!" : "Copy Full Message"}
             </span>
-            <span className="text-[10px] text-[#4F5D75]">For manual pasting</span>
+            <span className="text-[10px] text-[#0D47A1]/70">For manual pasting</span>
           </div>
         </button>
       </div>
 
       {/* Manual Selectable Textarea if clipboard unavailable */}
       {showManualCopy && (
-        <div className="flex flex-col gap-2 pt-2 border-t border-[#DDD5BE]">
-          <span className="text-[11px] text-[#4F5D75] font-semibold">
+        <div className="flex flex-col gap-2 pt-2 border-t border-[#90CAF9]/60">
+          <span className="text-[11px] text-[#0D47A1]/70 font-semibold">
             Select & copy your message below:
           </span>
           <textarea
             readOnly
             rows={4}
             value={message}
-            className="w-full p-2.5 rounded-lg bg-white border border-[#DDD5BE] text-xs font-mono text-[#0B1226] focus:outline-none select-all"
+            className="w-full p-2.5 rounded-lg bg-white border border-[#90CAF9] text-xs font-mono text-[#0D47A1] focus:outline-none select-all"
             onClick={(e) => (e.target as HTMLTextAreaElement).select()}
           />
         </div>

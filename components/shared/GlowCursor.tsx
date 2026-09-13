@@ -4,9 +4,9 @@ import React, { useEffect, useRef } from "react";
 import { Renderer, Camera, Transform, Program, Mesh, Triangle, Color, Vec2 } from "ogl";
 
 interface GlowCursorProps {
-  primaryColor?: string; // default "#0046FF"
-  accentColor?: string; // default "#FF8040"
-  secondaryColor?: string; // default "#001BB7"
+  primaryColor?: string; // default "#2196F3"
+  accentColor?: string; // default "#90CAF9"
+  secondaryColor?: string; // default "#0D47A1"
   intensity?: number;
   radius?: number;
   blur?: number;
@@ -75,9 +75,9 @@ function hexToRgb(hex: string): [number, number, number] {
 }
 
 export function GlowCursor({
-  primaryColor = "#0046FF",
-  accentColor = "#FF8040",
-  secondaryColor = "#001BB7",
+  primaryColor = "#2196F3",
+  accentColor = "#90CAF9",
+  secondaryColor = "#0D47A1",
   intensity = 1.0,
   radius = 0.28,
 }: GlowCursorProps) {
@@ -143,7 +143,6 @@ export function GlowCursor({
     };
 
     const handleMouseMove = (e: MouseEvent) => {
-      const rect = container.getBoundingClientRect();
       mouseRef.current.targetX = e.clientX * renderer.dpr;
       mouseRef.current.targetY = (window.innerHeight - e.clientY) * renderer.dpr;
 

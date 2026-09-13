@@ -51,17 +51,17 @@ export function AuthPromptModal() {
   if (!visible || dismissed) return null;
 
   return (
-    <div className="fixed bottom-6 right-6 z-40 max-w-sm w-full bg-white/95 backdrop-blur-md border border-[#DDD5BE] rounded-3xl p-5 shadow-2xl animate-in slide-in-from-bottom-5 duration-300 text-[#0B1226]">
+    <div className="fixed bottom-6 right-6 z-40 max-w-sm w-full bg-white/95 backdrop-blur-md border border-[#90CAF9] rounded-3xl p-5 shadow-2xl animate-in slide-in-from-bottom-5 duration-300 text-[#0D47A1]">
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-xl bg-[#0046FF]/10 border border-[#0046FF]/20 flex items-center justify-center text-[#001BB7] shrink-0">
-            <Sparkles className="w-4 h-4 text-[#FF8040]" />
+          <div className="w-8 h-8 rounded-xl bg-[#2196F3]/10 border border-[#2196F3]/20 flex items-center justify-center text-[#2196F3] shrink-0">
+            <Sparkles className="w-4 h-4 text-[#2196F3]" />
           </div>
           <div>
-            <h4 className="text-sm font-bold text-[#0B1226]">
+            <h4 className="text-sm font-bold text-[#0D47A1]">
               Save Your Favorite Designs
             </h4>
-            <p className="text-xs text-[#4F5D75]">
+            <p className="text-xs text-[#0D47A1]/70">
               Sign in with Google to bookmark concepts and resume conversations anytime.
             </p>
           </div>
@@ -69,7 +69,7 @@ export function AuthPromptModal() {
         <button
           type="button"
           onClick={handleDismiss}
-          className="text-[#4F5D75] hover:text-[#0B1226] transition-colors p-1"
+          className="text-[#0D47A1]/60 hover:text-[#0D47A1] transition-colors p-1"
         >
           <X className="w-4 h-4" />
         </button>
@@ -107,7 +107,7 @@ export function AuthPromptModal() {
         <button
           type="button"
           onClick={handleDismiss}
-          className="text-xs text-[#4F5D75] hover:text-[#0B1226] px-3 py-2 font-medium"
+          className="text-xs text-[#0D47A1]/70 hover:text-[#0D47A1] px-3 py-2 font-medium"
         >
           Maybe Later
         </button>

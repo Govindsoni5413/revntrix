@@ -44,8 +44,8 @@ export default async function CampaignOutreachPage({ params, searchParams }: Cam
   );
 
   return (
-    <div className="min-h-screen bg-[#F5F1DC] text-[#0B1226] flex flex-col font-sans relative">
-      <GlowCursor primaryColor="#0046FF" accentColor="#FF8040" secondaryColor="#001BB7" />
+    <div className="min-h-screen bg-[#E3F2FD] text-[#0A2E6B] flex flex-col font-sans relative">
+      <GlowCursor primaryColor="#2196F3" accentColor="#90CAF9" secondaryColor="#0D47A1" />
       <Navbar
         activeNiche={validNicheId}
         businessName={presentation.businessName}
@@ -61,32 +61,26 @@ export default async function CampaignOutreachPage({ params, searchParams }: Cam
           campaignCode={campaignCode}
         />
 
-        {/* Niche Navigation / Isolation Tabs */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#222] pb-6">
+        {/* Niche Indicator Strip */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#90CAF9]">
           <div>
-            <span className="text-xs font-bold text-[#D4A72C] uppercase tracking-widest">
-              Curated Category
+            <span className="text-xs font-bold text-[#2196F3] uppercase tracking-wider">
+              Niche Architecture Showcase
             </span>
-            <h2 className="text-xl sm:text-2xl font-bold text-[#F7F7F5] mt-1">
-              10 Design Directions for {activeNicheMeta.name}
-            </h2>
+            <h3 className="text-xl sm:text-2xl font-extrabold text-[#0D47A1]">
+              10 Directions Curated for {activeNicheMeta?.name}
+            </h3>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2">
-            {Object.values(NICHES).map((n) => (
-              <Link
-                key={n.id}
-                href={`/r/${campaignCode}?niche=${n.id.toLowerCase()}`}
-                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all min-h-[36px] flex items-center ${
-                  validNicheId === n.id
-                    ? "bg-[#D4A72C] text-black shadow"
-                    : "bg-[#141414] border border-[#2B2B2B] text-[#888] hover:text-white"
-                }`}
-              >
-                {n.name}
-              </Link>
-            ))}
-          </div>
+          <a
+            href={directWhatsAppUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#2196F3] hover:bg-[#0D47A1] text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md self-start sm:self-auto min-h-[44px]"
+          >
+            <MessageSquare className="w-3.5 h-3.5 fill-current" />
+            <span>Discuss This Proposal</span>
+          </a>
         </div>
 
         {/* 10 Curated Designs Grid */}
@@ -96,31 +90,9 @@ export default async function CampaignOutreachPage({ params, searchParams }: Cam
               key={design.id}
               design={design}
               businessName={presentation.businessName}
-              campaignId={presentation.campaignId}
+              campaignId={campaignCode}
             />
           ))}
-        </div>
-
-        {/* Floating Quick Action CTA */}
-        <div className="mt-8 bg-gradient-to-r from-[#1A1408] via-[#1D1D1D] to-[#141414] border border-[#D4A72C]/40 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
-          <div className="flex flex-col gap-1 text-center sm:text-left">
-            <h3 className="text-lg font-bold text-[#F7F7F5]">
-              Ready to Discuss a Direction for {presentation.businessName}?
-            </h3>
-            <p className="text-xs text-[#A7A7A0]">
-              Our design lead is ready on WhatsApp with instant wireframing and timeline estimation.
-            </p>
-          </div>
-
-          <a
-            href={directWhatsAppUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#25D366] text-black text-xs font-bold hover:brightness-110 shadow-lg min-h-[44px]"
-          >
-            <MessageSquare className="w-4 h-4 fill-current" />
-            <span>Connect on WhatsApp</span>
-          </a>
         </div>
       </main>
 
