@@ -32,21 +32,21 @@ export function ConsentCheckbox({
             className="peer sr-only"
           />
           <div
-            className={`w-5 h-5 rounded border transition-all duration-200 flex items-center justify-center ${
+            className={`w-5 h-5 rounded-lg border transition-all duration-200 flex items-center justify-center ${
               checked
-                ? "bg-[#D4A72C] border-[#D4A72C] text-[#080808]"
-                : "bg-[#141414] border-[#343434] group-hover:border-[#A7A7A0]"
+                ? "bg-[#0046FF] border-[#0046FF] text-white"
+                : "bg-[#F5F1DC] border-[#DDD5BE] group-hover:border-[#0046FF]"
             } ${error ? "border-red-500" : ""}`}
           >
             {checked && <Check className="w-3.5 h-3.5 stroke-[3]" />}
           </div>
         </div>
-        <span className="text-xs text-[#A7A7A0] leading-relaxed group-hover:text-[#F7F7F5] transition-colors">
+        <span className="text-xs text-[#4F5D75] leading-relaxed group-hover:text-[#0B1226] transition-colors">
           I agree to be contacted via WhatsApp/Email regarding this enquiry and accept the{" "}
           <Link
             href="/privacy"
             target="_blank"
-            className="text-[#D4A72C] underline hover:text-[#F3C64E]"
+            className="text-[#001BB7] font-semibold underline hover:text-[#0046FF]"
             onClick={(e) => e.stopPropagation()}
           >
             Privacy Terms
@@ -54,7 +54,7 @@ export function ConsentCheckbox({
           .
         </span>
       </label>
-      {error && <p className="text-xs text-red-400 pl-8">{error}</p>}
+      {error && <p className="text-xs text-red-600 font-medium pl-8">{error}</p>}
     </div>
   );
 }

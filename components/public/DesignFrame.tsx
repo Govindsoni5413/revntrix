@@ -44,40 +44,40 @@ export function DesignFrame({
   );
 
   return (
-    <div className="min-h-screen bg-[#080808] text-[#F7F7F5] flex flex-col">
+    <div className="min-h-screen bg-[#F5F1DC] text-[#0B1226] flex flex-col font-sans">
       {/* Top Interactive Control Bar */}
-      <header className="sticky top-0 z-50 bg-[#141414]/95 backdrop-blur-md border-b border-[#2E2E2E] px-4 py-3 flex flex-wrap items-center justify-between gap-3 shadow-lg">
+      <header className="sticky top-0 z-50 bg-[#F5F1DC]/95 backdrop-blur-md border-b border-[#DDD5BE] px-4 py-3 flex flex-wrap items-center justify-between gap-3 shadow-md">
         {/* Left: Back & Breadcrumb */}
         <div className="flex items-center gap-3">
           <Link
             href={`/${niche?.slug || ""}`}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#1D1D1D] hover:bg-[#262626] border border-[#343434] text-xs font-semibold text-[#A7A7A0] hover:text-[#F7F7F5] transition-colors min-h-[44px]"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-[#ECE6D0] border border-[#DDD5BE] text-xs font-bold text-[#0B1226] transition-colors min-h-[44px]"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Catalog</span>
           </Link>
           <div className="flex flex-col">
             <div className="flex items-center gap-2">
-              <span className="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-[#D4A72C]/20 text-[#D4A72C] border border-[#D4A72C]/30">
+              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#0046FF]/10 text-[#001BB7] border border-[#0046FF]/20">
                 {design.id}
               </span>
-              <span className="text-sm font-bold text-[#F7F7F5]">{design.name}</span>
+              <span className="text-sm font-bold text-[#0B1226]">{design.name}</span>
             </div>
-            <span className="text-[11px] text-[#A7A7A0] hidden sm:block">
+            <span className="text-[11px] text-[#4F5D75] hidden sm:block">
               {niche?.name} • Semi-Functional Preview
             </span>
           </div>
         </div>
 
         {/* Center: Device Viewport Switcher */}
-        <div className="hidden md:flex items-center bg-[#080808] p-1 rounded-lg border border-[#343434]">
+        <div className="hidden md:flex items-center bg-white p-1 rounded-xl border border-[#DDD5BE]">
           <button
             type="button"
             onClick={() => setViewport("desktop")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
               viewport === "desktop"
-                ? "bg-[#1D1D1D] text-[#D4A72C] shadow"
-                : "text-[#A7A7A0] hover:text-[#F7F7F5]"
+                ? "bg-[#001BB7] text-white shadow-sm"
+                : "text-[#4F5D75] hover:text-[#0B1226]"
             }`}
           >
             <Monitor className="w-3.5 h-3.5" />
@@ -86,10 +86,10 @@ export function DesignFrame({
           <button
             type="button"
             onClick={() => setViewport("mobile")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
               viewport === "mobile"
-                ? "bg-[#1D1D1D] text-[#D4A72C] shadow"
-                : "text-[#A7A7A0] hover:text-[#F7F7F5]"
+                ? "bg-[#001BB7] text-white shadow-sm"
+                : "text-[#4F5D75] hover:text-[#0B1226]"
             }`}
           >
             <Smartphone className="w-3.5 h-3.5" />
@@ -99,63 +99,67 @@ export function DesignFrame({
 
         {/* Right: Conversion Triggers */}
         <div className="flex items-center gap-2">
-          {/* Custom Flow */}
           <button
             type="button"
             onClick={() => setCustomOpen(true)}
-            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#1D1D1D] hover:bg-[#262626] border border-[#343434] text-xs font-medium text-[#F7F7F5] transition-colors min-h-[44px]"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-[#ECE6D0] border border-[#DDD5BE] text-xs font-bold text-[#0B1226] transition-all min-h-[44px]"
           >
-            <Wand2 className="w-3.5 h-3.5 text-[#D4A72C]" />
-            <span>Custom Architecture</span>
+            <Wand2 className="w-3.5 h-3.5 text-[#FF8040]" />
+            <span>Custom Brief</span>
           </button>
 
-          {/* Ready Made Handoff */}
           <button
             type="button"
             onClick={() => setReadyMadeOpen(true)}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-[#F3C64E] via-[#D4A72C] to-[#8F6415] text-black text-xs font-bold hover:brightness-110 shadow-[0_0_20px_rgba(212,167,44,0.25)] transition-all min-h-[44px]"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0046FF] hover:bg-[#001BB7] text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md shadow-[#0046FF]/20 min-h-[44px]"
           >
-            <Sparkles className="w-4 h-4 fill-current" />
-            <span>Choose This Design</span>
+            <Sparkles className="w-3.5 h-3.5 fill-current text-[#FF8040]" />
+            <span>Get This Design</span>
           </button>
+
+          <a
+            href={directWhatsAppUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2.5 rounded-xl bg-white hover:bg-[#ECE6D0] border border-[#DDD5BE] text-[#001BB7] hover:text-[#0046FF] transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+            title="Chat about this design on WhatsApp"
+          >
+            <MessageSquare className="w-4 h-4 fill-current" />
+          </a>
         </div>
       </header>
 
-      {/* Live Content Stage */}
-      <main className="flex-1 flex justify-center items-start bg-[#0D0D0D] p-0 md:p-6 overflow-x-hidden">
-        <div
-          className={`w-full transition-all duration-300 ease-out bg-[#080808] ${
-            viewport === "mobile"
-              ? "max-w-[390px] min-h-[844px] my-4 rounded-[40px] border-[8px] border-[#222] shadow-[0_0_50px_rgba(0,0,0,0.8)] overflow-hidden"
-              : "max-w-7xl rounded-none md:rounded-2xl border-0 md:border md:border-[#222] shadow-2xl overflow-hidden"
-          }`}
-        >
-          {children}
-        </div>
+      {/* Viewport Frame Container */}
+      <main className="flex-1 flex justify-center items-start overflow-x-hidden p-0 md:p-4 bg-[#ECE6D0]">
+        {viewport === "mobile" ? (
+          <div className="w-[390px] min-h-[844px] my-4 rounded-[40px] border-[10px] border-[#0B1226] shadow-2xl overflow-hidden bg-white relative">
+            {/* Phone Speaker Notch */}
+            <div className="absolute top-2 left-1/2 -translate-x-1/2 w-28 h-4 bg-[#0B1226] rounded-full z-50 pointer-events-none" />
+            <div className="pt-6 h-full overflow-y-auto">{children}</div>
+          </div>
+        ) : (
+          <div className="w-full max-w-full rounded-none md:rounded-2xl overflow-hidden shadow-2xl border-0 md:border border-[#DDD5BE] bg-white">
+            {children}
+          </div>
+        )}
       </main>
 
-      {/* Sticky Bottom Quick Handoff Bar on Mobile */}
-      <div className="md:hidden sticky bottom-0 z-40 bg-[#141414]/95 backdrop-blur-md border-t border-[#262626] p-3 flex items-center gap-2">
-        <a
-          href={directWhatsAppUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg bg-[#25D366] text-black text-xs font-bold min-h-[44px]"
-        >
-          <MessageSquare className="w-4 h-4 fill-current" />
-          <span>WhatsApp Handoff</span>
-        </a>
+      {/* Sticky Bottom Bar for Mobile Device View */}
+      <div className="sticky bottom-0 z-40 bg-[#F5F1DC]/95 backdrop-blur-md border-t border-[#DDD5BE] p-3 flex items-center justify-between sm:hidden shadow-lg">
+        <div className="flex flex-col">
+          <span className="text-xs font-bold text-[#0B1226]">{design.id}</span>
+          <span className="text-[10px] text-[#4F5D75]">{design.name}</span>
+        </div>
         <button
           type="button"
           onClick={() => setReadyMadeOpen(true)}
-          className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-lg bg-gradient-to-r from-[#F3C64E] to-[#D4A72C] text-black text-xs font-bold min-h-[44px]"
+          className="px-4 py-2.5 rounded-xl bg-[#0046FF] text-white text-xs font-bold uppercase tracking-wider shadow-md"
         >
-          <Sparkles className="w-3.5 h-3.5 fill-current" />
-          <span>Ready-Made</span>
+          Get This Design
         </button>
       </div>
 
-      {/* Conversion Modals */}
+      {/* Ready-Made 2-step Conversion Modal */}
       <ReadyMadeModal
         isOpen={readyMadeOpen}
         onClose={() => setReadyMadeOpen(false)}
@@ -166,12 +170,11 @@ export function DesignFrame({
         campaignId={campaignId}
       />
 
+      {/* Custom Onboarding 5-step Modal */}
       <CustomOnboardingModal
         isOpen={customOpen}
         onClose={() => setCustomOpen(false)}
-        defaultNicheId={design.nicheId}
         defaultBusinessName={businessName}
-        campaignId={campaignId}
       />
     </div>
   );

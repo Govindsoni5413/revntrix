@@ -3,7 +3,7 @@
 import React from "react";
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: "primary" | "secondary" | "outline" | "ghost" | "gold";
+  variant?: "primary" | "secondary" | "accent" | "outline" | "ghost";
   size?: "sm" | "md" | "lg";
   children: React.ReactNode;
   className?: string;
@@ -24,7 +24,7 @@ export function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D4A72C] disabled:opacity-50 disabled:cursor-not-allowed select-none min-h-[44px]";
+    "inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0046FF] disabled:opacity-50 disabled:cursor-not-allowed select-none min-h-[44px]";
 
   const sizeStyles = {
     sm: "px-3.5 py-1.5 text-xs gap-1.5",
@@ -34,15 +34,15 @@ export function Button({
 
   const variantStyles = {
     primary:
-      "bg-gradient-to-r from-[#F3C64E] via-[#D4A72C] to-[#8F6415] text-[#080808] font-semibold hover:brightness-110 active:scale-[0.98] shadow-[0_0_20px_rgba(212,167,44,0.2)]",
-    gold:
-      "bg-[#D4A72C] text-[#080808] font-semibold hover:bg-[#F3C64E] active:scale-[0.98]",
+      "bg-[#0046FF] text-white font-semibold hover:bg-[#001BB7] active:scale-[0.98] shadow-md shadow-[#0046FF]/20",
+    accent:
+      "bg-[#FF8040] text-white font-semibold hover:bg-[#E56725] active:scale-[0.98] shadow-md shadow-[#FF8040]/25",
     secondary:
-      "bg-[#1D1D1D] text-[#F7F7F5] border border-[#343434] hover:bg-[#262626] hover:border-[#D4A72C]/40 active:scale-[0.98]",
+      "bg-white text-[#0B1226] border border-[#DDD5BE] hover:bg-[#ECE6D0] hover:border-[#0046FF] active:scale-[0.98]",
     outline:
-      "bg-transparent text-[#F7F7F5] border border-[#343434] hover:border-[#D4A72C] hover:text-[#D4A72C] active:scale-[0.98]",
+      "bg-transparent text-[#001BB7] border border-[#001BB7] hover:bg-[#0046FF]/10 active:scale-[0.98]",
     ghost:
-      "bg-transparent text-[#A7A7A0] hover:text-[#F7F7F5] hover:bg-[#1D1D1D] active:scale-[0.98]",
+      "bg-transparent text-[#4F5D75] hover:text-[#0B1226] hover:bg-[#ECE6D0] active:scale-[0.98]",
   };
 
   return (

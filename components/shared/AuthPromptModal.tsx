@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { X, ShieldCheck, Sparkles } from "lucide-react";
+import { X, Sparkles } from "lucide-react";
 import { Button } from "./Button";
 import { createClient } from "@/supabase/client";
 
@@ -51,17 +51,17 @@ export function AuthPromptModal() {
   if (!visible || dismissed) return null;
 
   return (
-    <div className="fixed bottom-6 right-6 z-40 max-w-sm w-full bg-[#141414]/95 backdrop-blur-md border border-[#D4A72C]/40 rounded-2xl p-5 shadow-2xl animate-in slide-in-from-bottom-5 duration-300">
+    <div className="fixed bottom-6 right-6 z-40 max-w-sm w-full bg-white/95 backdrop-blur-md border border-[#DDD5BE] rounded-3xl p-5 shadow-2xl animate-in slide-in-from-bottom-5 duration-300 text-[#0B1226]">
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-[#D4A72C]/10 border border-[#D4A72C]/30 flex items-center justify-center text-[#D4A72C] shrink-0">
-            <Sparkles className="w-4 h-4" />
+          <div className="w-8 h-8 rounded-xl bg-[#0046FF]/10 border border-[#0046FF]/20 flex items-center justify-center text-[#001BB7] shrink-0">
+            <Sparkles className="w-4 h-4 text-[#FF8040]" />
           </div>
           <div>
-            <h4 className="text-sm font-semibold text-[#F7F7F5]">
+            <h4 className="text-sm font-bold text-[#0B1226]">
               Save Your Favorite Designs
             </h4>
-            <p className="text-xs text-[#A7A7A0]">
+            <p className="text-xs text-[#4F5D75]">
               Sign in with Google to bookmark concepts and resume conversations anytime.
             </p>
           </div>
@@ -69,7 +69,7 @@ export function AuthPromptModal() {
         <button
           type="button"
           onClick={handleDismiss}
-          className="text-[#A7A7A0] hover:text-[#F7F7F5] transition-colors p-1"
+          className="text-[#4F5D75] hover:text-[#0B1226] transition-colors p-1"
         >
           <X className="w-4 h-4" />
         </button>
@@ -102,11 +102,15 @@ export function AuthPromptModal() {
             </svg>
           }
         >
-          Sign in with Google
+          Sign In with Google
         </Button>
-        <Button variant="ghost" size="sm" onClick={handleDismiss}>
-          Later
-        </Button>
+        <button
+          type="button"
+          onClick={handleDismiss}
+          className="text-xs text-[#4F5D75] hover:text-[#0B1226] px-3 py-2 font-medium"
+        >
+          Maybe Later
+        </button>
       </div>
     </div>
   );

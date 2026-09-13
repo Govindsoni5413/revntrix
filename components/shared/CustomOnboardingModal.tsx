@@ -40,7 +40,7 @@ export function CustomOnboardingModal({
   const [businessName, setBusinessName] = useState(defaultBusinessName);
   const [phone, setPhone] = useState("");
   const [mainGoal, setMainGoal] = useState("High-Conversion Lead Generation");
-  const [stylePreference, setStylePreference] = useState("Modern Luxury & Dark Minimal");
+  const [stylePreference, setStylePreference] = useState("Modern Luxury & Editorial");
   const [features, setFeatures] = useState<string[]>([
     "WhatsApp Quick Chat",
     "Interactive Portfolio / Gallery",
@@ -103,38 +103,37 @@ export function CustomOnboardingModal({
       return;
     }
     setErrors({});
-    setStep((prev) => Math.min(prev + 1, 5));
+    setStep((prev) => Math.min(5, prev + 1));
   };
 
   const handleBack = () => {
-    setErrors({});
-    setStep((prev) => Math.max(prev - 1, 1));
+    setStep((prev) => Math.max(1, prev - 1));
   };
 
   const handleSubmit = async () => {
     if (!consentGiven) {
-      setErrors({ consent: "Please agree to the contact consent to proceed." });
+      setErrors({ consent: "Consent is required to submit your custom brief." });
       return;
     }
 
     setSubmitting(true);
     setErrors({});
 
-    const summaryText = aiSummary || customNotes || "Bespoke custom architecture";
-
-    const formattedMessage = [
-      "Hello Revntrix Team,",
-      "",
-      `Business: ${businessName.trim()}`,
-      `Niche: ${NICHES[nicheId]?.name || nicheId}`,
-      `Intent: custom (Custom Architecture Inquiry)`,
-      `Primary Goal: ${mainGoal}`,
-      `Style Direction: ${stylePreference}`,
-      `Key Features: ${features.join(", ")}`,
-      referenceUrl ? `Reference: ${referenceUrl}` : null,
-      `Notes: ${summaryText}`,
-      "",
-      "I would like to discuss a tailored website design project.",
+    const formattedBrief = [
+      `*CUSTOM WEBSITE ARCHITECTURE BRIEF*`,
+      `===============================`,
+      `• *Business Name:* ${businessName.trim()}`,
+      `• *Industry Niche:* ${NICHES[nicheId]?.name || nicheId}`,
+      `• *Primary Objective:* ${mainGoal}`,
+      `• *Aesthetic Style:* ${stylePreference}`,
+      `• *Required Features:* ${features.join(", ")}`,
+      referenceUrl.trim() ? `• *Reference URL:* ${referenceUrl.trim()}` : null,
+      (aiSummary || customNotes).trim()
+        ? `• *Vision & Notes:* ${(aiSummary || customNotes).trim()}`
+        : null,
+      phone.trim() ? `• *Contact Phone:* ${phone.trim()}` : null,
+      `===============================`,
+      `Looking forward to discussing this tailored project!`,
     ]
       .filter(Boolean)
       .join("\n");
@@ -146,25 +145,20 @@ export function CustomOnboardingModal({
         body: JSON.stringify({
           businessName: businessName.trim(),
           nicheId,
-          designId: "CUSTOM_ARCH",
           intent: "custom",
           campaignId: campaignId || undefined,
           phone: phone.trim() || undefined,
-          requirements: JSON.stringify({
-            mainGoal,
-            stylePreference,
-            features,
-            referenceUrl,
-            notes: summaryText,
-          }),
+          requirements: formattedBrief,
           consentGiven: true,
         }),
       });
-    } catch (e) {
-      console.warn("Custom lead saved locally fallback", e);
-    } finally {
-      setGeneratedMessage(formattedMessage);
+
+      setGeneratedMessage(formattedBrief);
       setCompleted(true);
+    } catch {
+      setGeneratedMessage(formattedBrief);
+      setCompleted(true);
+    } finally {
       setSubmitting(false);
     }
   };
@@ -172,31 +166,31 @@ export function CustomOnboardingModal({
   const availableFeatures = [
     "WhatsApp Quick Chat",
     "Interactive Portfolio / Gallery",
-    "Appointment / Table Booking Flow",
-    "Filterable Product / Listing Catalog",
-    "Before / After Transformation Slider",
-    "Diamond / Property Consultation Estimator",
-    "Multi-location Support",
-    "Direct Checkout / Cart Drawer",
+    "Online Booking / Appointments",
+    "Customer Reviews / Testimonials",
+    "Menu / Catalog Filter Engine",
+    "Payment Gateway / D2C Checkout",
+    "Interactive Calculators / Quizzes",
+    "Multi-Location / Map Directory",
   ];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/70 backdrop-blur-md animate-in fade-in duration-200">
       <div
-        className="relative w-full max-w-xl bg-[#141414] border border-[#343434] rounded-2xl shadow-2xl overflow-hidden text-[#F7F7F5]"
+        className="relative w-full max-w-xl bg-white border border-[#DDD5BE] rounded-3xl shadow-2xl overflow-hidden text-[#0B1226]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-5 border-b border-[#262626] bg-[#1D1D1D]/50">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-[#D4A72C]/10 border border-[#D4A72C]/30 flex items-center justify-center text-[#D4A72C]">
-              <Sparkles className="w-4 h-4" />
+        <div className="flex items-center justify-between p-5 border-b border-[#ECE6D0] bg-[#F5F1DC]">
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-xl bg-[#0046FF]/10 border border-[#0046FF]/20 flex items-center justify-center text-[#001BB7]">
+              <Wand2 className="w-4 h-4 text-[#FF8040]" />
             </div>
             <div>
-              <h3 className="text-base font-semibold text-[#F7F7F5]">
-                Custom Design Architecture
+              <h3 className="text-base font-bold text-[#0B1226]">
+                Custom Architecture Brief
               </h3>
-              <p className="text-xs text-[#A7A7A0]">
+              <p className="text-xs text-[#4F5D75] font-semibold">
                 {!completed ? `Step ${step} of 5 — Project Brief` : "Brief Ready"}
               </p>
             </div>
@@ -204,7 +198,7 @@ export function CustomOnboardingModal({
           <button
             type="button"
             onClick={onClose}
-            className="w-8 h-8 rounded-lg flex items-center justify-center text-[#A7A7A0] hover:text-[#F7F7F5] hover:bg-[#262626] transition-colors"
+            className="w-8 h-8 rounded-xl flex items-center justify-center text-[#4F5D75] hover:text-[#0B1226] hover:bg-[#ECE6D0] transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -212,9 +206,9 @@ export function CustomOnboardingModal({
 
         {/* Step Progress Bar */}
         {!completed && (
-          <div className="w-full bg-[#1D1D1D] h-1">
+          <div className="w-full bg-[#ECE6D0] h-1.5">
             <div
-              className="bg-gradient-to-r from-[#F3C64E] to-[#D4A72C] h-1 transition-all duration-300"
+              className="bg-[#0046FF] h-1.5 transition-all duration-300"
               style={{ width: `${(step / 5) * 100}%` }}
             />
           </div>
@@ -227,19 +221,19 @@ export function CustomOnboardingModal({
               {/* STEP 1: Business Info */}
               {step === 1 && (
                 <div className="flex flex-col gap-4 animate-in fade-in duration-200">
-                  <div className="flex items-center gap-2 text-sm font-semibold text-[#F7F7F5]">
-                    <Building className="w-4 h-4 text-[#D4A72C]" />
+                  <div className="flex items-center gap-2 text-sm font-bold text-[#0B1226]">
+                    <Building className="w-4 h-4 text-[#0046FF]" />
                     <span>Step 1: Business & Industry Niche</span>
                   </div>
 
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-semibold text-[#F7F7F5]">
-                      Industry Niche <span className="text-[#D4A72C]">*</span>
+                    <label className="text-xs font-bold text-[#0B1226]">
+                      Industry Niche <span className="text-[#0046FF]">*</span>
                     </label>
                     <select
                       value={nicheId}
                       onChange={(e) => setNicheId(e.target.value as NicheId)}
-                      className="w-full px-3.5 py-2.5 text-sm bg-[#080808] border border-[#343434] rounded-lg text-[#F7F7F5] focus:outline-none focus:border-[#D4A72C] min-h-[44px]"
+                      className="w-full px-3.5 py-2.5 text-sm bg-[#F5F1DC] border border-[#DDD5BE] rounded-xl text-[#0B1226] focus:outline-none focus:border-[#0046FF] min-h-[44px]"
                     >
                       {Object.values(NICHES).map((n) => (
                         <option key={n.id} value={n.id}>
@@ -250,8 +244,8 @@ export function CustomOnboardingModal({
                   </div>
 
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-semibold text-[#F7F7F5]">
-                      Business / Brand Name <span className="text-[#D4A72C]">*</span>
+                    <label className="text-xs font-bold text-[#0B1226]">
+                      Business / Brand Name <span className="text-[#0046FF]">*</span>
                     </label>
                     <input
                       type="text"
@@ -259,19 +253,19 @@ export function CustomOnboardingModal({
                       placeholder="e.g. Apex Luxury Living"
                       value={businessName}
                       onChange={(e) => setBusinessName(e.target.value)}
-                      className={`w-full px-3.5 py-2.5 text-sm bg-[#080808] border rounded-lg text-[#F7F7F5] focus:outline-none transition-colors min-h-[44px] ${
+                      className={`w-full px-3.5 py-2.5 text-sm bg-[#F5F1DC] border rounded-xl text-[#0B1226] focus:outline-none transition-colors min-h-[44px] ${
                         errors.businessName
                           ? "border-red-500 focus:border-red-500"
-                          : "border-[#343434] focus:border-[#D4A72C]"
+                          : "border-[#DDD5BE] focus:border-[#0046FF]"
                       }`}
                     />
                     {errors.businessName && (
-                      <p className="text-xs text-red-400">{errors.businessName}</p>
+                      <p className="text-xs text-red-600 font-medium">{errors.businessName}</p>
                     )}
                   </div>
 
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-semibold text-[#F7F7F5]">
+                    <label className="text-xs font-bold text-[#0B1226]">
                       Contact Phone / WhatsApp (Optional)
                     </label>
                     <input
@@ -279,7 +273,7 @@ export function CustomOnboardingModal({
                       placeholder="+91 98765 43210"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="w-full px-3.5 py-2.5 text-sm bg-[#080808] border border-[#343434] rounded-lg text-[#F7F7F5] focus:outline-none focus:border-[#D4A72C] min-h-[44px]"
+                      className="w-full px-3.5 py-2.5 text-sm bg-[#F5F1DC] border border-[#DDD5BE] rounded-xl text-[#0B1226] focus:outline-none focus:border-[#0046FF] min-h-[44px]"
                     />
                   </div>
                 </div>
@@ -288,8 +282,8 @@ export function CustomOnboardingModal({
               {/* STEP 2: Main Goal */}
               {step === 2 && (
                 <div className="flex flex-col gap-4 animate-in fade-in duration-200">
-                  <div className="flex items-center gap-2 text-sm font-semibold text-[#F7F7F5]">
-                    <Target className="w-4 h-4 text-[#D4A72C]" />
+                  <div className="flex items-center gap-2 text-sm font-bold text-[#0B1226]">
+                    <Target className="w-4 h-4 text-[#0046FF]" />
                     <span>Step 2: Primary Website Objective</span>
                   </div>
 
@@ -305,14 +299,14 @@ export function CustomOnboardingModal({
                         key={goal}
                         type="button"
                         onClick={() => setMainGoal(goal)}
-                        className={`p-3.5 rounded-lg border text-left text-xs font-medium transition-all flex items-center justify-between min-h-[44px] ${
+                        className={`p-3.5 rounded-xl border text-left text-xs font-semibold transition-all flex items-center justify-between min-h-[44px] ${
                           mainGoal === goal
-                            ? "bg-[#D4A72C]/10 border-[#D4A72C] text-[#F7F7F5]"
-                            : "bg-[#1D1D1D] border-[#343434] text-[#A7A7A0] hover:border-[#A7A7A0]"
+                            ? "bg-[#0046FF]/10 border-[#0046FF] text-[#001BB7]"
+                            : "bg-[#F5F1DC] border-[#DDD5BE] text-[#4F5D75] hover:border-[#0046FF]"
                         }`}
                       >
                         <span>{goal}</span>
-                        {mainGoal === goal && <Check className="w-4 h-4 text-[#D4A72C]" />}
+                        {mainGoal === goal && <Check className="w-4 h-4 text-[#0046FF]" />}
                       </button>
                     ))}
                   </div>
@@ -322,32 +316,32 @@ export function CustomOnboardingModal({
               {/* STEP 3: Style Direction */}
               {step === 3 && (
                 <div className="flex flex-col gap-4 animate-in fade-in duration-200">
-                  <div className="flex items-center gap-2 text-sm font-semibold text-[#F7F7F5]">
-                    <Palette className="w-4 h-4 text-[#D4A72C]" />
+                  <div className="flex items-center gap-2 text-sm font-bold text-[#0B1226]">
+                    <Palette className="w-4 h-4 text-[#0046FF]" />
                     <span>Step 3: Visual Aesthetic & Style Direction</span>
                   </div>
 
                   <div className="grid grid-cols-1 gap-2.5">
                     {[
-                      "Modern Luxury & Dark Charcoal Minimal",
-                      "Clean Editorial, Warm Off-White & Typography Focus",
-                      "High-Tech Asymmetric Cyber & Glassmorphism",
-                      "Heritage Gold, Regal Indian Cultural Luxury",
-                      "Bold High-Impact DTC Performance & Vibrant Accents",
+                      "Modern Luxury & Editorial",
+                      "Clean Minimalist & Typography Focus",
+                      "High-Tech Asymmetric & Interactive",
+                      "Warm Heritage & Rich Tones",
+                      "Bold High-Impact DTC Performance",
                     ].map((style) => (
                       <button
                         key={style}
                         type="button"
                         onClick={() => setStylePreference(style)}
-                        className={`p-3.5 rounded-lg border text-left text-xs font-medium transition-all flex items-center justify-between min-h-[44px] ${
+                        className={`p-3.5 rounded-xl border text-left text-xs font-semibold transition-all flex items-center justify-between min-h-[44px] ${
                           stylePreference === style
-                            ? "bg-[#D4A72C]/10 border-[#D4A72C] text-[#F7F7F5]"
-                            : "bg-[#1D1D1D] border-[#343434] text-[#A7A7A0] hover:border-[#A7A7A0]"
+                            ? "bg-[#0046FF]/10 border-[#0046FF] text-[#001BB7]"
+                            : "bg-[#F5F1DC] border-[#DDD5BE] text-[#4F5D75] hover:border-[#0046FF]"
                         }`}
                       >
                         <span>{style}</span>
                         {stylePreference === style && (
-                          <Check className="w-4 h-4 text-[#D4A72C]" />
+                          <Check className="w-4 h-4 text-[#0046FF]" />
                         )}
                       </button>
                     ))}
@@ -358,13 +352,13 @@ export function CustomOnboardingModal({
               {/* STEP 4: Features & References */}
               {step === 4 && (
                 <div className="flex flex-col gap-4 animate-in fade-in duration-200">
-                  <div className="flex items-center gap-2 text-sm font-semibold text-[#F7F7F5]">
-                    <Layers className="w-4 h-4 text-[#D4A72C]" />
+                  <div className="flex items-center gap-2 text-sm font-bold text-[#0B1226]">
+                    <Layers className="w-4 h-4 text-[#0046FF]" />
                     <span>Step 4: Required Features & References</span>
                   </div>
 
                   <div className="flex flex-col gap-2">
-                    <label className="text-xs font-semibold text-[#F7F7F5]">
+                    <label className="text-xs font-bold text-[#0B1226]">
                       Select Desired Components
                     </label>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -375,17 +369,17 @@ export function CustomOnboardingModal({
                             key={feat}
                             type="button"
                             onClick={() => toggleFeature(feat)}
-                            className={`p-2.5 rounded-lg border text-left text-xs transition-all flex items-center gap-2 min-h-[44px] ${
+                            className={`p-3 rounded-xl border text-left text-xs font-semibold transition-all flex items-center gap-2 min-h-[44px] ${
                               active
-                                ? "bg-[#D4A72C]/10 border-[#D4A72C] text-[#F7F7F5]"
-                                : "bg-[#1D1D1D] border-[#343434] text-[#A7A7A0] hover:border-[#A7A7A0]"
+                                ? "bg-[#0046FF]/10 border-[#0046FF] text-[#001BB7]"
+                                : "bg-[#F5F1DC] border-[#DDD5BE] text-[#4F5D75] hover:border-[#0046FF]"
                             }`}
                           >
                             <div
                               className={`w-4 h-4 rounded border flex items-center justify-center shrink-0 ${
                                 active
-                                  ? "bg-[#D4A72C] border-[#D4A72C] text-black"
-                                  : "border-[#343434]"
+                                  ? "bg-[#0046FF] border-[#0046FF] text-white"
+                                  : "border-[#DDD5BE]"
                               }`}
                             >
                               {active && <Check className="w-3 h-3 stroke-[3]" />}
@@ -398,7 +392,7 @@ export function CustomOnboardingModal({
                   </div>
 
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-semibold text-[#F7F7F5]">
+                    <label className="text-xs font-bold text-[#0B1226]">
                       Reference Website URL (Optional)
                     </label>
                     <input
@@ -406,7 +400,7 @@ export function CustomOnboardingModal({
                       placeholder="https://example.com"
                       value={referenceUrl}
                       onChange={(e) => setReferenceUrl(e.target.value)}
-                      className="w-full px-3.5 py-2.5 text-sm bg-[#080808] border border-[#343434] rounded-lg text-[#F7F7F5] focus:outline-none focus:border-[#D4A72C] min-h-[44px]"
+                      className="w-full px-3.5 py-2.5 text-sm bg-[#F5F1DC] border border-[#DDD5BE] rounded-xl text-[#0B1226] focus:outline-none focus:border-[#0046FF] min-h-[44px]"
                     />
                   </div>
                 </div>
@@ -415,41 +409,41 @@ export function CustomOnboardingModal({
               {/* STEP 5: Review & AI Assistant & Consent */}
               {step === 5 && (
                 <div className="flex flex-col gap-4 animate-in fade-in duration-200">
-                  <div className="flex items-center gap-2 text-sm font-semibold text-[#F7F7F5]">
-                    <FileCheck className="w-4 h-4 text-[#D4A72C]" />
+                  <div className="flex items-center gap-2 text-sm font-bold text-[#0B1226]">
+                    <FileCheck className="w-4 h-4 text-[#0046FF]" />
                     <span>Step 5: Review Brief & Finalize</span>
                   </div>
 
                   {/* Summary Card */}
-                  <div className="bg-[#1D1D1D] border border-[#262626] rounded-xl p-4 flex flex-col gap-2.5 text-xs text-[#A7A7A0]">
+                  <div className="bg-[#F5F1DC] border border-[#DDD5BE] rounded-2xl p-4 flex flex-col gap-2 text-xs text-[#4F5D75]">
                     <div>
-                      <strong className="text-[#F7F7F5]">Business:</strong> {businessName} (
+                      <strong className="text-[#0B1226]">Business:</strong> {businessName} (
                       {NICHES[nicheId]?.name})
                     </div>
                     <div>
-                      <strong className="text-[#F7F7F5]">Goal:</strong> {mainGoal}
+                      <strong className="text-[#0B1226]">Goal:</strong> {mainGoal}
                     </div>
                     <div>
-                      <strong className="text-[#F7F7F5]">Style:</strong> {stylePreference}
+                      <strong className="text-[#0B1226]">Style:</strong> {stylePreference}
                     </div>
                     <div>
-                      <strong className="text-[#F7F7F5]">Features:</strong> {features.join(", ")}
+                      <strong className="text-[#0B1226]">Features:</strong> {features.join(", ")}
                     </div>
                   </div>
 
                   {/* Additional notes with optional AI button */}
                   <div className="flex flex-col gap-1.5">
                     <div className="flex items-center justify-between">
-                      <label className="text-xs font-semibold text-[#F7F7F5]">
+                      <label className="text-xs font-bold text-[#0B1226]">
                         Project Notes / Specific Vision
                       </label>
                       <button
                         type="button"
                         onClick={handleAiRefine}
                         disabled={aiLoading}
-                        className="text-[11px] text-[#D4A72C] hover:text-[#F3C64E] flex items-center gap-1 font-medium transition-colors"
+                        className="text-[11px] text-[#0046FF] hover:text-[#001BB7] flex items-center gap-1 font-bold transition-colors"
                       >
-                        <Wand2 className="w-3 h-3" />
+                        <Wand2 className="w-3 h-3 text-[#FF8040]" />
                         {aiLoading ? "Refining..." : "AI Polish Brief"}
                       </button>
                     </div>
@@ -461,7 +455,7 @@ export function CustomOnboardingModal({
                         setCustomNotes(e.target.value);
                         setAiSummary("");
                       }}
-                      className="w-full px-3.5 py-2.5 text-xs bg-[#080808] border border-[#343434] rounded-lg text-[#F7F7F5] focus:outline-none focus:border-[#D4A72C]"
+                      className="w-full px-3.5 py-2.5 text-xs bg-[#F5F1DC] border border-[#DDD5BE] rounded-xl text-[#0B1226] focus:outline-none focus:border-[#0046FF]"
                     />
                   </div>
 
@@ -475,7 +469,7 @@ export function CustomOnboardingModal({
               )}
 
               {/* Navigation Buttons */}
-              <div className="flex items-center justify-between pt-2 border-t border-[#262626]">
+              <div className="flex items-center justify-between pt-2 border-t border-[#ECE6D0]">
                 {step > 1 ? (
                   <Button
                     type="button"
@@ -518,10 +512,10 @@ export function CustomOnboardingModal({
             </div>
           ) : (
             <div className="flex flex-col gap-5">
-              <div className="flex items-center gap-3 p-3.5 rounded-xl bg-[#22C55E]/10 border border-[#22C55E]/30 text-[#22C55E]">
+              <div className="flex items-center gap-3 p-4 rounded-2xl bg-[#16A34A]/10 border border-[#16A34A]/30 text-[#16A34A]">
                 <CheckCircle2 className="w-5 h-5 shrink-0" />
-                <div className="text-xs">
-                  <strong className="block text-[#F7F7F5] text-sm font-medium">
+                <div className="text-xs text-[#0B1226]">
+                  <strong className="block text-[#0B1226] text-sm font-bold">
                     Custom Brief Formatted
                   </strong>
                   Click below to open WhatsApp with your comprehensive project briefing.
