@@ -4,7 +4,6 @@ import Link from "next/link";
 import { ArrowLeft, Sparkles, CheckCircle2 } from "lucide-react";
 import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
-import { GlowCursor } from "@/components/shared/GlowCursor";
 import { DesignCard } from "@/components/public/DesignCard";
 import { getNicheBySlug, getDesignsByNiche, NICHES, NicheId } from "@/lib/design-registry";
 
@@ -37,7 +36,6 @@ export default async function NicheCatalogPage({ params, searchParams }: NichePa
 
   return (
     <div className="min-h-screen bg-[#E3F2FD] text-[#0A2E6B] flex flex-col font-sans selection:bg-[#2196F3] selection:text-white relative">
-      <GlowCursor primaryColor="#2196F3" accentColor="#90CAF9" secondaryColor="#0D47A1" />
       <Navbar activeNiche={niche.id} businessName={businessName} isPersonalized={!!businessName} />
 
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 w-full flex flex-col gap-10">

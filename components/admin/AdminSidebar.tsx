@@ -60,7 +60,7 @@ export function AdminSidebar() {
           {/* Admin Header */}
           <div className="flex items-center justify-between">
             <Link href="/" className="relative w-36 h-8">
-              <Image src="/brand/revntrix-logo.svg" alt="Revntrix" fill className="object-contain" />
+              <Image src="/brand/revntrix-logo-white.svg" alt="Revntrix" fill className="object-contain" />
             </Link>
             <button
               type="button"

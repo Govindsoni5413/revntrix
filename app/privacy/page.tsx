@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowLeft, ShieldCheck, Lock, Eye, Trash2 } from "lucide-react";
 import { Navbar } from "@/components/shared/Navbar";
 import { Footer } from "@/components/shared/Footer";
-import { GlowCursor } from "@/components/shared/GlowCursor";
 
 export const metadata = {
   title: "Privacy Policy & Data Protection | Revntrix",
@@ -13,7 +12,6 @@ export const metadata = {
 export default function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen bg-[#E3F2FD] text-[#0D47A1] flex flex-col font-sans selection:bg-[#2196F3] selection:text-white relative">
-      <GlowCursor primaryColor="#2196F3" accentColor="#90CAF9" secondaryColor="#0D47A1" />
       <Navbar />
 
       <main className="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20 w-full flex flex-col gap-10">

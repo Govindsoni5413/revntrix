@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { MessageSquare, Mail, Shield, CheckCircle2 } from "lucide-react";
+import { MessageSquare, Phone, Mail, ShieldCheck, CheckCircle2 } from "lucide-react";
 import { NICHES } from "@/lib/design-registry";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
@@ -10,115 +9,125 @@ export function Footer() {
   const salesEmail = process.env.SALES_EMAIL || "revntrix@gmail.com";
   const whatsappUrl = buildWhatsAppUrl(
     whatsappNumber,
-    "Hello Revntrix Team! I am reaching out to discuss a custom web project."
+    "Hello Revntrix Team! I am reaching out to discuss a custom web architecture project."
   );
 
   return (
-    <footer className="w-full bg-[#0D47A1] text-white pt-16 pb-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-12">
-        {/* Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Brand & Mission */}
-          <div className="md:col-span-2 flex flex-col gap-4">
+    <footer className="w-full bg-slate-50 border-t border-slate-200/90 text-slate-600 mt-16 sm:mt-24">
+      <div className="max-w-[1320px] mx-auto px-4 sm:px-8 py-10 sm:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-6">
+          {/* Column 1: Studio Brand & Mission (4 cols) */}
+          <div className="lg:col-span-4 flex flex-col gap-3.5">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-white text-[#0D47A1] flex items-center justify-center font-bold text-sm shadow-sm">
-                R
+              <div className="w-8 h-8 rounded-xl bg-sky-50 border border-sky-100 flex items-center justify-center text-sky-600 shadow-xs animate-float-icon">
+                <span className="font-extrabold text-[15px]">R</span>
               </div>
-              <span className="text-xl font-extrabold tracking-tight text-white">
-                REVNTRIX
-              </span>
+              <div className="flex items-center gap-1">
+                <span className="font-bold text-[18px] tracking-wider text-slate-950 uppercase font-sans leading-none">
+                  Revntrix
+                </span>
+                <span className="w-1.5 h-1.5 rounded-full bg-sky-600 mb-0.5 animate-pulse" />
+              </div>
             </div>
-            <p className="text-xs text-[#E3F2FD]/80 max-w-md leading-relaxed">
-              Revntrix is a WhatsApp-first design showcase presenting 60 semi-functional website
-              architecture directions. Every preview represents a starting framework tailored
-              and built out custom for your brand.
+            <p className="text-[13px] text-slate-500 leading-relaxed max-w-sm">
+              Conversion architecture engineered as strategic enterprise infrastructure. We architect high-converting web systems, eliminating template decay with precision-crafted blueprints.
             </p>
-
-            {/* Honest Trust Guarantee (PRD-03 §5) */}
-            <div className="bg-[#0A2E6B] border border-[#90CAF9]/30 p-4 rounded-2xl flex items-start gap-3 max-w-md">
-              <CheckCircle2 className="w-4 h-4 text-[#90CAF9] shrink-0 mt-0.5" />
-              <p className="text-[11px] text-[#E3F2FD]/90 leading-snug">
-                <strong className="text-white">Transparent Architecture Guarantee:</strong>{" "}
-                All 60 designs are live interactive concept blueprints. We never use fake scarcity,
-                misleading stats, or fabricated reviews.
-              </p>
+            <div className="flex items-center gap-2 text-emerald-700 text-[11px] uppercase font-bold pt-1">
+              <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+              <span>Engineered Conversion Standard</span>
             </div>
           </div>
 
-          {/* Niches Navigation */}
-          <div className="flex flex-col gap-3">
-            <h4 className="text-xs font-bold text-[#90CAF9] uppercase tracking-wider">
+          {/* Column 2: 6 Industry Niches (3 cols) */}
+          <div className="lg:col-span-3 flex flex-col gap-2.5">
+            <span className="text-[11px] text-slate-900 uppercase tracking-widest font-bold">
               6 Industry Niches
-            </h4>
-            <ul className="flex flex-col gap-2 text-xs">
+            </span>
+            <nav className="flex flex-col gap-2 pt-1">
               {Object.values(NICHES).map((niche) => (
-                <li key={niche.id}>
-                  <Link
-                    href={`/${niche.slug}`}
-                    className="text-[#E3F2FD]/80 hover:text-white transition-colors"
-                  >
-                    {niche.name} (10 Designs)
-                  </Link>
-                </li>
+                <Link
+                  key={niche.id}
+                  href={`/${niche.slug}`}
+                  className="text-[13px] text-slate-600 hover:text-sky-600 transition-colors py-0.5 hover:translate-x-1 transition-transform inline-flex items-center justify-between"
+                >
+                  <span>{niche.name}</span>
+                  <span className="text-[10px] text-slate-400 font-mono">10</span>
+                </Link>
               ))}
-            </ul>
+            </nav>
           </div>
 
-          {/* Contact & Fallbacks */}
-          <div className="flex flex-col gap-3">
-            <h4 className="text-xs font-bold text-[#90CAF9] uppercase tracking-wider">
-              Sales Handoff
-            </h4>
-            <div className="flex flex-col gap-2.5 text-xs">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[#90CAF9] font-bold hover:underline"
-              >
-                <MessageSquare className="w-4 h-4 fill-current" />
-                <span>+91 87642 74110 (WhatsApp)</span>
-              </a>
-              <a
-                href={`mailto:${salesEmail}`}
-                className="flex items-center gap-2 text-[#E3F2FD]/80 hover:text-white transition-colors"
-              >
-                <Mail className="w-4 h-4 text-[#90CAF9]" />
-                <span>{salesEmail}</span>
-              </a>
-              <Link
-                href="/privacy"
-                className="flex items-center gap-2 text-[#E3F2FD]/80 hover:text-white transition-colors"
-              >
-                <Shield className="w-4 h-4 text-[#90CAF9]" />
-                <span>Privacy & Consent Policy</span>
-              </Link>
+          {/* Column 3: Direct Studio Inquiries (3 cols) */}
+          <div className="lg:col-span-3 flex flex-col gap-2.5">
+            <span className="text-[11px] text-slate-900 uppercase tracking-widest font-bold">
+              Direct Studio Inquiries
+            </span>
+            <div className="flex flex-col gap-2.5 pt-1">
+              <div className="flex items-center gap-2 text-slate-600">
+                <Phone className="w-4 h-4 text-sky-600 shrink-0" />
+                <a
+                  href="tel:+918764274110"
+                  className="text-[13px] hover:text-sky-600 transition-colors font-medium touch-interactive"
+                >
+                  +91 87642 74110
+                </a>
+              </div>
+              <div className="flex items-center gap-2 text-slate-600">
+                <Mail className="w-4 h-4 text-sky-600 shrink-0" />
+                <a
+                  href={`mailto:${salesEmail}`}
+                  className="text-[13px] hover:text-sky-600 transition-colors font-medium touch-interactive"
+                >
+                  {salesEmail}
+                </a>
+              </div>
+              <div className="flex items-center gap-2 text-slate-600">
+                <MessageSquare className="w-4 h-4 text-emerald-600 shrink-0 animate-pulse" />
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[12px] text-slate-500 hover:text-emerald-700 transition-colors font-medium"
+                >
+                  24/7 Priority WhatsApp Line
+                </a>
+              </div>
               <Link
                 href="/admin/login"
-                className="text-[11px] text-[#E3F2FD]/60 hover:text-white transition-colors pt-2"
+                className="text-[11px] text-slate-400 hover:text-slate-600 transition-colors pt-2"
               >
                 Admin Gateway
               </Link>
             </div>
           </div>
+
+          {/* Column 4: Architecture Guarantee Card (2 cols) */}
+          <div className="lg:col-span-2 flex flex-col gap-2">
+            <span className="text-[11px] text-slate-900 uppercase tracking-widest font-bold">
+              Architecture Guarantee
+            </span>
+            <div className="p-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-xs flex flex-col gap-1 hover:border-sky-300 transition-colors mt-1">
+              <span className="text-[13px] text-slate-900 font-bold">100% Commercial Proof</span>
+              <p className="text-[12px] text-slate-500 leading-relaxed">
+                Guaranteed zero render layout debt, audited conversion paths, and instant WhatsApp handoff.
+              </p>
+            </div>
+          </div>
         </div>
 
-        {/* Bottom Strip */}
-        <div className="pt-8 border-t border-[#90CAF9]/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#E3F2FD]/70">
-          <p>© 2026 Revntrix. All 60 Design Blueprints Registered.</p>
-          <div className="flex items-center gap-6">
-            <Link href="/privacy" className="hover:text-white transition-colors">
-              Terms & Consent
-            </Link>
-            <span>•</span>
-            <a
-              href="https://wa.me/918764274110"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
-            >
-              Direct Studio Line
+        {/* Bottom Bar */}
+        <div className="pt-6 sm:pt-8 mt-8 sm:mt-10 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-[12px] text-slate-500">
+          <p>© 2026 Revntrix Architecture Studio. All rights reserved.</p>
+          <div className="flex flex-wrap justify-center items-center gap-4">
+            <a href="#guarantees" className="hover:text-slate-900 transition-colors">
+              Guarantees
             </a>
+            <a href="#guarantees" className="hover:text-slate-900 transition-colors">
+              Commercial SLA
+            </a>
+            <Link href="/privacy" className="hover:text-slate-900 transition-colors">
+              Privacy & Policies
+            </Link>
           </div>
         </div>
       </div>

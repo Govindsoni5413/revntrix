@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" fill="none">
+  <!-- Precision Vector R with Sharp Inward Tech Notch -->
+  <path d="
+    M 160 140
+    H 570
+    C 720 140 820 238 820 376
+    C 820 482 754 565 650 610
+    L 708 676
+    A 124 124 0 0 0 690 860
+    H 540
+    L 345 475
+    V 860
+    H 160
+    V 140
+    Z
+    M 320 275
+    H 545
+    C 595 275 635 315 635 365
+    C 635 415 595 455 545 455
+    H 320
+    V 275
+    Z
+  " fill="#090A0E" fill-rule="evenodd" />
+
+  <!-- Signature Electric Cobalt Blue Dot -->
+  <circle cx="765" cy="735" r="88" fill="#0062FF" />
+</svg>

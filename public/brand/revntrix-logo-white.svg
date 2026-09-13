@@ -21,17 +21,17 @@
       H 320
       V 275
       Z
-    " fill="#090A0E" fill-rule="evenodd" />
+    " fill="#FFFFFF" fill-rule="evenodd" />
     <circle cx="765" cy="735" r="88" fill="#0062FF" />
   </g>
 
   <!-- Modern Geometric Wordmark: REVNTRIX -->
-  <text x="175" y="105" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Outfit', sans-serif" font-size="68" font-weight="900" letter-spacing="-0.025em" fill="#090A0E">
+  <text x="175" y="105" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Outfit', sans-serif" font-size="68" font-weight="900" letter-spacing="-0.025em" fill="#FFFFFF">
     REVN<tspan fill="#0062FF">TRIX</tspan>
   </text>
   
   <!-- Modern Subtext Tagline -->
-  <text x="178" y="134" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="12" font-weight="700" letter-spacing="0.34em" fill="#64748B">
+  <text x="178" y="134" font-family="-apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="12" font-weight="700" letter-spacing="0.34em" fill="#94A3B8">
     AI WEB ARCHITECTURE
   </text>
 </svg>

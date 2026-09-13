@@ -49,8 +49,8 @@ export default function AdminLoginPage() {
     <div className="min-h-screen bg-[#080808] text-[#F7F7F5] flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-[#121212] border border-[#2B2B2B] rounded-3xl p-8 shadow-2xl flex flex-col gap-6">
         <div className="flex flex-col items-center text-center gap-3">
-          <Link href="/" className="relative w-40 h-10">
-            <Image src="/brand/revntrix-logo.svg" alt="Revntrix" fill className="object-contain" />
+          <Link href="/" className="relative w-44 h-12">
+            <Image src="/brand/revntrix-logo-white.svg" alt="Revntrix" fill className="object-contain" />
           </Link>
           <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A1A1A] border border-[#D4A72C]/30 text-[#D4A72C] text-xs font-mono">
             <ShieldCheck className="w-3.5 h-3.5 text-[#22C55E]" />

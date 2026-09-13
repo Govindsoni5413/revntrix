@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Inter, Outfit } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans, Outfit } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-plus-jakarta",
   display: "swap",
 });
 
@@ -39,6 +45,16 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Revntrix",
   },
+  icons: {
+    icon: [
+      { url: "/brand/favicon.svg", type: "image/svg+xml" },
+      { url: "/brand/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/brand/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [
+      { url: "/brand/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -49,7 +65,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${outfit.variable}`}
+      className={`${plusJakartaSans.variable} ${inter.variable} ${outfit.variable}`}
       suppressHydrationWarning
     >
       <body suppressHydrationWarning>{children}</body>
