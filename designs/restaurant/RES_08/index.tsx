@@ -1,25 +1,29 @@
-// ============================================================================
-// RES_08 — Food Storytelling
-// Stub module — replace with full implementation
-// ============================================================================
+"use client";
 
-export default function RES_08Design() {
+import React from "react";
+import { Utensils, Award, Sparkles } from "lucide-react";
+
+export default function RES_08Design({ businessName = "Provenance Culinary Story" }: { businessName?: string }) {
   return (
-    <section
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "column",
-        gap: "1rem",
-        fontFamily: "system-ui, sans-serif",
-        background: "#fafafa",
-        color: "#111",
-      }}
-    >
-      <h1 style={{ fontSize: "2rem", fontWeight: 700 }}>Food Storytelling</h1>
-      <p style={{ color: "#666" }}>Design template <code>RES_08</code> — coming soon</p>
-    </section>
+    <div className="bg-[#090807] text-[#F7F7F5] min-h-screen font-sans p-6 sm:p-12">
+      <div className="max-w-4xl mx-auto flex flex-col gap-10">
+        <div className="text-center flex flex-col items-center gap-2">
+          <span className="text-xs font-serif italic text-[#D4A72C]">
+            Ingredient-to-Plate Narrative • {businessName}
+          </span>
+          <h1 className="text-3xl sm:text-5xl font-serif text-[#F7F7F5]">
+            Every Dish Carries a Micro-Climate Story
+          </h1>
+        </div>
+
+        <div className="bg-[#14100E] border border-[#2B201A] rounded-2xl p-6 sm:p-8 flex flex-col gap-3">
+          <span className="text-xs font-mono text-[#D4A72C] uppercase font-bold">Hero Dish Provenance</span>
+          <h3 className="text-xl font-serif text-[#F7F7F5]">Hand-Rolled Tagliolini with White Alba Truffle</h3>
+          <p className="text-xs text-[#A7A7A0] leading-relaxed">
+            Pasta hand-extruded with 30 organic egg yolks per kilogram of stone-milled semolina, bathed in cultured churned mountain butter and shaved table-side with fresh Alba truffles.
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
