@@ -26,7 +26,7 @@ import { NICHES, designRegistry, NicheId } from "@/lib/design-registry";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 export default function HomePage() {
-  const [selectedNiche, setSelectedNiche] = useState<NicheId | "ALL">("ALL");
+  const [selectedNiche, setSelectedNiche] = useState<NicheId>("INT");
   const [customModalOpen, setCustomModalOpen] = useState(false);
 
   const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "918764274110";
@@ -35,10 +35,7 @@ export default function HomePage() {
     "Hello Revntrix Team! I am exploring your 60-design showcase and would like to discuss a project."
   );
 
-  const filteredDesigns =
-    selectedNiche === "ALL"
-      ? designRegistry
-      : designRegistry.filter((d) => d.nicheId === selectedNiche);
+  const filteredDesigns = designRegistry.filter((d) => d.nicheId === selectedNiche);
 
   const nicheHighlights: Record<NicheId, string> = {
     INT: "Editorial luxury, style discovery quizzes, 3D before/after sliders, and residential portfolios.",
@@ -253,7 +250,7 @@ export default function HomePage() {
                   Master Showcase Explorer
                 </span>
                 <h2 className="text-[24px] sm:text-[36px] text-slate-900 mb-4 sm:mb-6 font-extrabold tracking-tight leading-tight">
-                  Interactive Design Blueprints ({filteredDesigns.length})
+                  Interactive Design Blueprints
                 </h2>
 
                 {/* Interactive Filter Pills Dock (Horizontal scroll on mobile, wrap on desktop) */}
@@ -266,26 +263,6 @@ export default function HomePage() {
                       backdropFilter: "blur(16px)",
                     }}
                   >
-                    <button
-                      type="button"
-                      onClick={() => setSelectedNiche("ALL")}
-                      className={`h-11 px-4 rounded-xl text-[11px] sm:text-[12px] uppercase transition-all duration-300 font-semibold whitespace-nowrap active:scale-95 touch-interactive cursor-pointer ${
-                        selectedNiche === "ALL"
-                          ? "bg-sky-600 text-white shadow-sm shadow-sky-600/30"
-                          : "text-slate-600 hover:text-slate-900 hover:bg-white/60"
-                      }`}
-                      style={
-                        selectedNiche === "ALL"
-                          ? {
-                              boxShadow:
-                                "rgba(2, 132, 199, 0.4) 0px 6px 14px -2px, rgba(255, 255, 255, 0.5) 0px 1.5px 2px inset, rgba(2, 70, 125, 0.4) 0px -2px 3px inset",
-                            }
-                          : undefined
-                      }
-                    >
-                      All (60)
-                    </button>
-
                     {Object.values(NICHES).map((n) => (
                       <button
                         key={n.id}
