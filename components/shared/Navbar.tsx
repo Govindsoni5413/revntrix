@@ -114,17 +114,13 @@ export function Navbar({ activeNiche, businessName, isPersonalized }: NavbarProp
         {/* Brand Wordmark & Logo */}
         <div className="flex items-center gap-2.5">
           <Link href="/" className="flex items-center gap-2.5 group touch-interactive">
-            <div className="w-8 h-8 rounded-xl bg-sky-50 border border-sky-100 flex items-center justify-center text-sky-600 shadow-xs group-hover:scale-105 group-hover:rotate-1 transition-transform duration-300">
+            <div className="w-8 h-8 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center shadow-xs group-hover:scale-105 group-hover:rotate-1 transition-transform duration-300 overflow-hidden p-1.5">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/brand/revntrix-icon.svg"
                 alt="Revntrix Mark"
-                className="w-5 h-5 object-contain"
-                onError={(e) => {
-                  (e.target as HTMLElement).style.display = "none";
-                }}
+                className="w-full h-full object-contain"
               />
-              <span className="font-extrabold text-[15px] text-sky-600">R</span>
             </div>
             <div className="flex flex-col">
               <div className="flex items-center gap-1">

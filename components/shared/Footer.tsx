@@ -19,8 +19,13 @@ export function Footer() {
           {/* Column 1: Studio Brand & Mission (4 cols) */}
           <div className="lg:col-span-4 flex flex-col gap-3.5">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-sky-50 border border-sky-100 flex items-center justify-center text-sky-600 shadow-xs animate-float-icon">
-                <span className="font-extrabold text-[15px]">R</span>
+              <div className="w-8 h-8 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center shadow-xs animate-float-icon overflow-hidden p-1.5">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/brand/revntrix-icon.svg"
+                  alt="Revntrix Mark"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div className="flex items-center gap-1">
                 <span className="font-bold text-[18px] tracking-wider text-slate-950 uppercase font-sans leading-none">
