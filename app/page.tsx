@@ -111,7 +111,7 @@ export default function HomePage() {
                   }}
                 >
                   <Grid className="w-4 h-4 text-white group-hover:rotate-12 transition-transform duration-300" />
-                  <span className="tracking-tight">Explore All 60 Designs</span>
+                  <span className="tracking-tight">Explore Designs</span>
                 </a>
 
                 <button
@@ -128,7 +128,7 @@ export default function HomePage() {
                   }}
                 >
                   <FileEdit className="w-4 h-4 text-sky-600 group-hover:rotate-6 transition-transform duration-300" />
-                  <span className="tracking-tight text-slate-800">Custom design&apos;s</span>
+                  <span className="tracking-tight text-slate-800">Custom Designs</span>
                 </button>
               </div>
 
