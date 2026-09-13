@@ -38,17 +38,17 @@ export function NicheCard({
   return (
     <Link
       href={`/${slug}`}
-      className="group relative bg-white border border-[#90CAF9] hover:border-[#2196F3] rounded-2xl p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between overflow-hidden shadow-sm"
+      className="group relative glass-panel glass-panel-hover rounded-3xl p-6 transition-all duration-300 flex flex-col justify-between overflow-hidden"
     >
-      {/* Background Accent Glow */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-[#2196F3]/5 rounded-full blur-2xl group-hover:bg-[#2196F3]/10 transition-colors pointer-events-none" />
+      {/* Background Subtle Accent Glow */}
+      <div className="absolute top-0 right-0 w-36 h-36 bg-[#2196F3]/10 rounded-full blur-2xl group-hover:bg-[#2196F3]/20 transition-colors pointer-events-none" />
 
       <div className="flex flex-col gap-4 relative z-10">
         <div className="flex items-center justify-between">
-          <div className="w-12 h-12 rounded-xl bg-[#E3F2FD] border border-[#90CAF9] flex items-center justify-center group-hover:scale-110 group-hover:border-[#2196F3] transition-all">
+          <div className="w-12 h-12 rounded-2xl bg-white/90 border border-white flex items-center justify-center shadow-sm group-hover:scale-110 group-hover:border-[#2196F3] transition-all">
             {iconMap[id]}
           </div>
-          <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-[#E3F2FD] text-[#0D47A1] border border-[#90CAF9]">
+          <span className="glass-pill text-[11px] font-bold px-3 py-1 rounded-full text-[#0D47A1]">
             {count} Live Designs
           </span>
         </div>
@@ -63,7 +63,7 @@ export function NicheCard({
         </div>
       </div>
 
-      <div className="mt-6 pt-4 border-t border-[#D9EDFC] flex items-center justify-between text-xs font-bold text-[#2196F3] group-hover:text-[#0D47A1] transition-colors">
+      <div className="mt-6 pt-4 border-t border-[#90CAF9]/40 flex items-center justify-between text-xs font-bold text-[#2196F3] group-hover:text-[#0D47A1] transition-colors">
         <span>Explore Catalog</span>
         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
       </div>

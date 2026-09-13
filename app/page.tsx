@@ -53,16 +53,18 @@ export default function HomePage() {
       <GlowCursor primaryColor="#2196F3" accentColor="#90CAF9" secondaryColor="#0D47A1" />
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative overflow-hidden pt-16 pb-20 md:pt-24 md:pb-28 px-4 sm:px-6 lg:px-8 border-b border-[#90CAF9]">
-        {/* Background Ambient Glows */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[900px] h-[450px] bg-gradient-to-br from-[#2196F3]/15 via-[#90CAF9]/20 to-transparent rounded-full blur-3xl pointer-events-none" />
+      {/* Hero Section with Glassmorphism */}
+      <section className="relative overflow-hidden pt-16 pb-20 md:pt-24 md:pb-28 px-4 sm:px-6 lg:px-8 border-b border-[#90CAF9]/60">
+        {/* Background Ambient Multi-Layer Glows */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] sm:w-[1000px] h-[500px] bg-gradient-to-tr from-[#2196F3]/20 via-[#90CAF9]/30 to-[#E3F2FD] rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute top-1/3 left-1/4 w-[350px] h-[350px] bg-[#2196F3]/15 rounded-full blur-[80px] pointer-events-none" />
+        <div className="absolute top-1/2 right-1/4 w-[400px] h-[400px] bg-[#90CAF9]/25 rounded-full blur-[90px] pointer-events-none" />
 
         <div className="max-w-5xl mx-auto flex flex-col items-center text-center gap-6 relative z-10">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#90CAF9] text-[#0D47A1] text-xs font-bold shadow-sm">
+          {/* Glass Badge */}
+          <div className="glass-pill inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[#0D47A1] text-xs font-bold">
             <Sparkles className="w-3.5 h-3.5 text-[#2196F3] fill-current" />
-            <span>60 Semi-Functional Design Blueprints • 6 Niches</span>
+            <span>60 Semi-Functional Design Blueprints • 6 Industry Niches</span>
           </div>
 
           {/* Main Title */}
@@ -89,27 +91,44 @@ export default function HomePage() {
             <button
               type="button"
               onClick={() => setCustomModalOpen(true)}
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-[#D9EDFC] border border-[#90CAF9] text-sm font-bold text-[#0D47A1] transition-all min-h-[48px] shadow-sm"
+              className="glass-panel inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold text-[#0D47A1] hover:bg-white transition-all min-h-[48px]"
             >
               <Wand2 className="w-4 h-4 text-[#2196F3]" />
               <span>Custom Architecture Brief</span>
             </button>
           </div>
 
-          {/* Proof Badges */}
-          <div className="flex flex-wrap items-center justify-center gap-6 pt-6 text-xs font-semibold text-[#3A608F]">
-            <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
-              100% Authored Reality (No Lorem Ipsum)
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Zap className="w-4 h-4 text-[#2196F3]" />
-              44px Mobile Touch Targets
-            </span>
-            <span className="flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-[#0D47A1]" />
-              WhatsApp Native Tri-Handoff
-            </span>
+          {/* Hero Glass Stat Cards Panel */}
+          <div className="w-full max-w-4xl mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+            <div className="glass-panel rounded-2xl p-4 text-left flex flex-col gap-1 transition-all hover:bg-white/90 hover:-translate-y-0.5">
+              <div className="flex items-center gap-2 text-xs font-bold text-[#0D47A1]">
+                <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
+                <span>100% Authored Reality</span>
+              </div>
+              <p className="text-[11px] text-[#3A608F] leading-tight">
+                Zero placeholder fiction. Realistic menus, booking systems & portfolios.
+              </p>
+            </div>
+
+            <div className="glass-panel rounded-2xl p-4 text-left flex flex-col gap-1 transition-all hover:bg-white/90 hover:-translate-y-0.5">
+              <div className="flex items-center gap-2 text-xs font-bold text-[#0D47A1]">
+                <Zap className="w-4 h-4 text-[#2196F3]" />
+                <span>Mobile-First Precision</span>
+              </div>
+              <p className="text-[11px] text-[#3A608F] leading-tight">
+                Standardized 44px touch targets & ultra-responsive fluid layouts.
+              </p>
+            </div>
+
+            <div className="glass-panel rounded-2xl p-4 text-left flex flex-col gap-1 transition-all hover:bg-white/90 hover:-translate-y-0.5">
+              <div className="flex items-center gap-2 text-xs font-bold text-[#0D47A1]">
+                <ShieldCheck className="w-4 h-4 text-[#0D47A1]" />
+                <span>WhatsApp Tri-Handoff</span>
+              </div>
+              <p className="text-[11px] text-[#3A608F] leading-tight">
+                Automatic WhatsApp launch with pre-filled scope & direct fallback.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -146,7 +165,7 @@ export default function HomePage() {
 
       {/* 60 Designs Master Catalog Explorer */}
       <section id="catalog" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full flex-1">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 pb-6 border-b border-[#90CAF9]">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 pb-6 border-b border-[#90CAF9]/60">
           <div>
             <span className="text-xs font-bold text-[#2196F3] uppercase tracking-wider">
               Master Showcase Explorer
@@ -156,15 +175,15 @@ export default function HomePage() {
             </h2>
           </div>
 
-          {/* Filter Pills */}
+          {/* Glass Filter Pills */}
           <div className="flex flex-wrap items-center gap-2">
             <button
               type="button"
               onClick={() => setSelectedNiche("ALL")}
               className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all min-h-[44px] ${
                 selectedNiche === "ALL"
-                  ? "bg-[#0D47A1] text-white shadow-sm"
-                  : "bg-white text-[#3A608F] border border-[#90CAF9] hover:bg-[#D9EDFC] hover:text-[#0D47A1]"
+                  ? "bg-[#0D47A1] text-white shadow-md"
+                  : "glass-panel text-[#3A608F] hover:bg-white hover:text-[#0D47A1]"
               }`}
             >
               All Niches (60)
@@ -176,8 +195,8 @@ export default function HomePage() {
                 onClick={() => setSelectedNiche(n.id)}
                 className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all min-h-[44px] ${
                   selectedNiche === n.id
-                    ? "bg-[#0D47A1] text-white shadow-sm"
-                    : "bg-white text-[#3A608F] border border-[#90CAF9] hover:bg-[#D9EDFC] hover:text-[#0D47A1]"
+                    ? "bg-[#0D47A1] text-white shadow-md"
+                    : "glass-panel text-[#3A608F] hover:bg-white hover:text-[#0D47A1]"
                 }`}
               >
                 {n.name} (10)
@@ -194,10 +213,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Conversion Callout Banner */}
-      <section className="bg-[#0D47A1] text-white py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center flex flex-col items-center gap-6">
-          <div className="w-12 h-12 rounded-2xl bg-white/10 border border-[#90CAF9]/40 flex items-center justify-center text-[#90CAF9]">
+      {/* Conversion Callout Banner with Glassmorphism */}
+      <section className="bg-[#0D47A1] text-white py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        {/* Ambient Glow in CTA */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#2196F3]/25 rounded-full blur-[90px] pointer-events-none" />
+
+        <div className="max-w-4xl mx-auto text-center flex flex-col items-center gap-6 relative z-10">
+          <div className="w-12 h-12 rounded-2xl bg-white/15 backdrop-blur-md border border-white/30 flex items-center justify-center text-[#90CAF9] shadow-lg">
             <Layers className="w-6 h-6" />
           </div>
 
@@ -222,7 +244,7 @@ export default function HomePage() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs uppercase tracking-wider transition-all min-h-[48px] flex items-center gap-2"
+              className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/25 text-white font-bold text-xs uppercase tracking-wider transition-all min-h-[48px] flex items-center gap-2"
             >
               <MessageSquare className="w-4 h-4 fill-current text-[#90CAF9]" />
               <span>Direct WhatsApp Discussion</span>

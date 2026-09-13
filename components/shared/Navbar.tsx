@@ -29,10 +29,10 @@ export function Navbar({ activeNiche, businessName, isPersonalized }: NavbarProp
   );
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#E3F2FD]/95 backdrop-blur-md border-b border-[#90CAF9] text-[#0D47A1]">
+    <header className="sticky top-0 z-40 w-full bg-[#E3F2FD]/80 backdrop-blur-xl border-b border-white/60 shadow-[0_4px_25px_rgba(13,71,161,0.04)] text-[#0D47A1]">
       {/* Personalized Outreach Top Bar if applicable */}
       {isPersonalized && businessName && (
-        <div className="w-full bg-[#0D47A1] text-white px-4 py-2 text-xs font-semibold text-center flex items-center justify-center gap-2">
+        <div className="w-full bg-[#0D47A1]/95 backdrop-blur-md text-white px-4 py-2 text-xs font-semibold text-center flex items-center justify-center gap-2 border-b border-[#90CAF9]/30">
           <Sparkles className="w-3.5 h-3.5 text-[#90CAF9] fill-current" />
           <span>
             Curated Design Directions Prepared for: <strong className="text-[#90CAF9]">{businessName}</strong>
@@ -77,7 +77,7 @@ export function Navbar({ activeNiche, businessName, isPersonalized }: NavbarProp
             {nichesDropdown && (
               <div
                 onMouseLeave={() => setNichesDropdown(false)}
-                className="absolute top-full left-0 w-64 p-2 bg-white border border-[#90CAF9] rounded-2xl shadow-xl animate-in fade-in slide-in-from-top-2 duration-150 flex flex-col gap-1 z-50"
+                className="absolute top-full left-0 w-64 p-2 bg-white/90 backdrop-blur-2xl border border-white/90 rounded-2xl shadow-[0_20px_50px_rgba(13,71,161,0.12)] animate-in fade-in slide-in-from-top-2 duration-150 flex flex-col gap-1 z-50"
               >
                 {Object.values(NICHES).map((niche) => (
                   <Link
