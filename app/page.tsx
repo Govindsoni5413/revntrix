@@ -53,18 +53,19 @@ export default function HomePage() {
       <GlowCursor primaryColor="#2196F3" accentColor="#90CAF9" secondaryColor="#0D47A1" />
       <Navbar />
 
-      {/* Hero Section with Glassmorphism */}
-      <section className="relative overflow-hidden pt-16 pb-20 md:pt-24 md:pb-28 px-4 sm:px-6 lg:px-8 border-b border-[#90CAF9]/60">
-        {/* Background Ambient Multi-Layer Glows */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] sm:w-[1000px] h-[500px] bg-gradient-to-tr from-[#2196F3]/20 via-[#90CAF9]/30 to-[#E3F2FD] rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute top-1/3 left-1/4 w-[350px] h-[350px] bg-[#2196F3]/15 rounded-full blur-[80px] pointer-events-none" />
-        <div className="absolute top-1/2 right-1/4 w-[400px] h-[400px] bg-[#90CAF9]/25 rounded-full blur-[90px] pointer-events-none" />
+      {/* Hero Section with iPhone Liquid Glass Architecture */}
+      <section className="relative overflow-hidden pt-16 pb-20 md:pt-24 md:pb-28 px-4 sm:px-6 lg:px-8 border-b border-[#90CAF9]/40">
+        {/* Background Multi-Layer Fluid Ambient Glows */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] sm:w-[950px] h-[550px] bg-gradient-to-tr from-[#2196F3]/25 via-[#90CAF9]/35 to-[#E3F2FD] rounded-full blur-[110px] pointer-events-none" />
+        <div className="absolute top-1/3 left-1/4 w-[380px] h-[380px] bg-[#2196F3]/20 rounded-full blur-[90px] pointer-events-none" />
+        <div className="absolute top-1/2 right-1/4 w-[420px] h-[420px] bg-[#90CAF9]/30 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="max-w-5xl mx-auto flex flex-col items-center text-center gap-6 relative z-10">
-          {/* Glass Badge */}
-          <div className="glass-pill inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[#0D47A1] text-xs font-bold">
+          {/* iPhone Dynamic Liquid Pill Badge */}
+          <div className="liquid-pill inline-flex items-center gap-2.5 px-5 py-2 text-[#0D47A1] text-xs font-bold transition-all hover:scale-105 cursor-default">
+            <span className="w-2 h-2 rounded-full bg-[#2196F3] animate-pulse" />
             <Sparkles className="w-3.5 h-3.5 text-[#2196F3] fill-current" />
-            <span>60 Semi-Functional Design Blueprints • 6 Industry Niches</span>
+            <span>60 Interactive Blueprints • 6 Industry Niches</span>
           </div>
 
           {/* Main Title */}
@@ -78,11 +79,11 @@ export default function HomePage() {
             Stop starting websites from zero. Explore 60 fully interactive design blueprints across 6 key industries. Pick a ready direction or commission a tailored custom architecture directly over WhatsApp.
           </p>
 
-          {/* Primary Action Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-3.5 pt-4">
+          {/* Liquid Glass Capsule Action Buttons */}
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <a
               href="#catalog"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#2196F3] text-white text-sm font-bold shadow-lg shadow-[#2196F3]/30 hover:bg-[#0D47A1] active:scale-95 transition-all min-h-[48px]"
+              className="liquid-button-primary inline-flex items-center justify-center gap-2.5 px-8 py-4 text-white text-sm font-bold min-h-[48px]"
             >
               <span>Explore All 60 Designs</span>
               <ArrowRight className="w-4 h-4" />
@@ -91,42 +92,52 @@ export default function HomePage() {
             <button
               type="button"
               onClick={() => setCustomModalOpen(true)}
-              className="glass-panel inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold text-[#0D47A1] hover:bg-white transition-all min-h-[48px]"
+              className="liquid-button-secondary inline-flex items-center justify-center gap-2.5 px-8 py-4 text-sm font-bold text-[#0D47A1] min-h-[48px]"
             >
               <Wand2 className="w-4 h-4 text-[#2196F3]" />
               <span>Custom Architecture Brief</span>
             </button>
           </div>
 
-          {/* Hero Glass Stat Cards Panel */}
-          <div className="w-full max-w-4xl mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3.5">
-            <div className="glass-panel rounded-2xl p-4 text-left flex flex-col gap-1 transition-all hover:bg-white/90 hover:-translate-y-0.5">
+          {/* iPhone Liquid Glass Stat Island / Feature Cards */}
+          <div className="w-full max-w-4xl mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="liquid-glass-card p-5 text-left flex flex-col gap-1.5 relative overflow-hidden group">
+              {/* Gloss shine reflection line */}
+              <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent opacity-80" />
               <div className="flex items-center gap-2 text-xs font-bold text-[#0D47A1]">
-                <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
+                <div className="w-7 h-7 rounded-full bg-white/90 border border-white flex items-center justify-center shadow-xs">
+                  <CheckCircle2 className="w-4 h-4 text-[#16A34A]" />
+                </div>
                 <span>100% Authored Reality</span>
               </div>
-              <p className="text-[11px] text-[#3A608F] leading-tight">
-                Zero placeholder fiction. Realistic menus, booking systems & portfolios.
+              <p className="text-[11px] text-[#3A608F] leading-relaxed pl-1">
+                Zero placeholder fiction. Realistic menus, dynamic booking systems & curated portfolios.
               </p>
             </div>
 
-            <div className="glass-panel rounded-2xl p-4 text-left flex flex-col gap-1 transition-all hover:bg-white/90 hover:-translate-y-0.5">
+            <div className="liquid-glass-card p-5 text-left flex flex-col gap-1.5 relative overflow-hidden group">
+              <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent opacity-80" />
               <div className="flex items-center gap-2 text-xs font-bold text-[#0D47A1]">
-                <Zap className="w-4 h-4 text-[#2196F3]" />
+                <div className="w-7 h-7 rounded-full bg-white/90 border border-white flex items-center justify-center shadow-xs">
+                  <Zap className="w-4 h-4 text-[#2196F3]" />
+                </div>
                 <span>Mobile-First Precision</span>
               </div>
-              <p className="text-[11px] text-[#3A608F] leading-tight">
-                Standardized 44px touch targets & ultra-responsive fluid layouts.
+              <p className="text-[11px] text-[#3A608F] leading-relaxed pl-1">
+                Standardized 44px touch targets & fluid iOS-grade responsive interactions.
               </p>
             </div>
 
-            <div className="glass-panel rounded-2xl p-4 text-left flex flex-col gap-1 transition-all hover:bg-white/90 hover:-translate-y-0.5">
+            <div className="liquid-glass-card p-5 text-left flex flex-col gap-1.5 relative overflow-hidden group">
+              <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent opacity-80" />
               <div className="flex items-center gap-2 text-xs font-bold text-[#0D47A1]">
-                <ShieldCheck className="w-4 h-4 text-[#0D47A1]" />
+                <div className="w-7 h-7 rounded-full bg-white/90 border border-white flex items-center justify-center shadow-xs">
+                  <ShieldCheck className="w-4 h-4 text-[#0D47A1]" />
+                </div>
                 <span>WhatsApp Tri-Handoff</span>
               </div>
-              <p className="text-[11px] text-[#3A608F] leading-tight">
-                Automatic WhatsApp launch with pre-filled scope & direct fallback.
+              <p className="text-[11px] text-[#3A608F] leading-relaxed pl-1">
+                Automatic WhatsApp launch with pre-filled scope brief & fail-safe copy buffer.
               </p>
             </div>
           </div>
@@ -165,7 +176,7 @@ export default function HomePage() {
 
       {/* 60 Designs Master Catalog Explorer */}
       <section id="catalog" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full flex-1">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 pb-6 border-b border-[#90CAF9]/60">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8 pb-6 border-b border-[#90CAF9]/40">
           <div>
             <span className="text-xs font-bold text-[#2196F3] uppercase tracking-wider">
               Master Showcase Explorer
@@ -175,28 +186,28 @@ export default function HomePage() {
             </h2>
           </div>
 
-          {/* Glass Filter Pills */}
-          <div className="flex flex-wrap items-center gap-2">
+          {/* iPhone Liquid Glass Filter Dock */}
+          <div className="flex flex-wrap items-center gap-2 p-1.5 rounded-full bg-white/40 backdrop-blur-xl border border-white/80 shadow-sm">
             <button
               type="button"
               onClick={() => setSelectedNiche("ALL")}
-              className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all min-h-[44px] ${
+              className={`px-4 py-2 rounded-full text-xs font-bold transition-all min-h-[40px] ${
                 selectedNiche === "ALL"
-                  ? "bg-[#0D47A1] text-white shadow-md"
-                  : "glass-panel text-[#3A608F] hover:bg-white hover:text-[#0D47A1]"
+                  ? "bg-[#0D47A1] text-white shadow-md shadow-[#0D47A1]/20 scale-105"
+                  : "text-[#3A608F] hover:bg-white/80 hover:text-[#0D47A1]"
               }`}
             >
-              All Niches (60)
+              All (60)
             </button>
             {Object.values(NICHES).map((n) => (
               <button
                 key={n.id}
                 type="button"
                 onClick={() => setSelectedNiche(n.id)}
-                className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all min-h-[44px] ${
+                className={`px-4 py-2 rounded-full text-xs font-bold transition-all min-h-[40px] ${
                   selectedNiche === n.id
-                    ? "bg-[#0D47A1] text-white shadow-md"
-                    : "glass-panel text-[#3A608F] hover:bg-white hover:text-[#0D47A1]"
+                    ? "bg-[#0D47A1] text-white shadow-md shadow-[#0D47A1]/20 scale-105"
+                    : "text-[#3A608F] hover:bg-white/80 hover:text-[#0D47A1]"
                 }`}
               >
                 {n.name} (10)
@@ -213,29 +224,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Conversion Callout Banner with Glassmorphism */}
-      <section className="bg-[#0D47A1] text-white py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        {/* Ambient Glow in CTA */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#2196F3]/25 rounded-full blur-[90px] pointer-events-none" />
+      {/* Conversion Callout Banner — iPhone Liquid Island Style */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        <div className="glass-card-deep text-white p-8 sm:p-14 relative overflow-hidden text-center flex flex-col items-center gap-6">
+          {/* Internal Ambient Light Refraction */}
+          <div className="absolute -top-24 -left-24 w-72 h-72 bg-[#2196F3]/40 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-[#90CAF9]/30 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="max-w-4xl mx-auto text-center flex flex-col items-center gap-6 relative z-10">
-          <div className="w-12 h-12 rounded-2xl bg-white/15 backdrop-blur-md border border-white/30 flex items-center justify-center text-[#90CAF9] shadow-lg">
-            <Layers className="w-6 h-6" />
+          <div className="w-14 h-14 rounded-full bg-white/15 backdrop-blur-xl border border-white/40 flex items-center justify-center text-[#90CAF9] shadow-lg relative z-10">
+            <Layers className="w-7 h-7" />
           </div>
 
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight relative z-10 max-w-2xl">
             Need a Bespoke Architecture Tailored to Your Exact Scope?
           </h2>
 
-          <p className="text-xs sm:text-sm text-[#E3F2FD]/80 max-w-xl leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#E3F2FD]/85 max-w-xl leading-relaxed relative z-10">
             Our 5-step qualification questionnaire structures your goals, audience, and features into a complete architectural brief, ready to execute on WhatsApp.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-2 relative z-10">
             <button
               type="button"
               onClick={() => setCustomModalOpen(true)}
-              className="px-6 py-3.5 rounded-xl bg-[#2196F3] hover:bg-white hover:text-[#0D47A1] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg min-h-[48px]"
+              className="px-8 py-4 rounded-full bg-white text-[#0D47A1] hover:bg-[#E3F2FD] font-bold text-xs uppercase tracking-wider transition-all shadow-xl min-h-[48px] hover:scale-105"
             >
               Launch 5-Step Custom Brief
             </button>
@@ -244,7 +256,7 @@ export default function HomePage() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/25 text-white font-bold text-xs uppercase tracking-wider transition-all min-h-[48px] flex items-center gap-2"
+              className="px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-xl border border-white/30 text-white font-bold text-xs uppercase tracking-wider transition-all min-h-[48px] flex items-center gap-2 hover:scale-105"
             >
               <MessageSquare className="w-4 h-4 fill-current text-[#90CAF9]" />
               <span>Direct WhatsApp Discussion</span>

@@ -106,13 +106,13 @@ export function Navbar({ activeNiche, businessName, isPersonalized }: NavbarProp
           </Link>
         </nav>
 
-        {/* Right CTA */}
+        {/* Right CTA — Liquid Glass Capsule */}
         <div className="hidden sm:flex items-center gap-3">
           <a
             href={generalWhatsAppUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#2196F3] hover:bg-[#0D47A1] text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md shadow-[#2196F3]/25 min-h-[44px]"
+            className="liquid-button-primary inline-flex items-center gap-2 px-5 py-2.5 text-white text-xs font-bold uppercase tracking-wider min-h-[44px]"
           >
             <MessageSquare className="w-3.5 h-3.5 fill-current" />
             <span>Chat On WhatsApp</span>
@@ -125,7 +125,7 @@ export function Navbar({ activeNiche, businessName, isPersonalized }: NavbarProp
             type="button"
             onClick={() => setMobileMenuOpen((prev) => !prev)}
             aria-label="Toggle navigation menu"
-            className="p-2.5 rounded-xl bg-white border border-[#90CAF9] text-[#0D47A1] min-w-[44px] min-h-[44px] flex items-center justify-center"
+            className="p-2.5 rounded-full bg-white/90 border border-white text-[#0D47A1] min-w-[44px] min-h-[44px] flex items-center justify-center shadow-xs"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>

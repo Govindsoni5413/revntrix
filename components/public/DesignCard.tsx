@@ -93,11 +93,11 @@ export function DesignCard({
           </div>
         </div>
 
-        {/* Action Buttons */}
-        <div className="mt-5 pt-3 border-t border-[#90CAF9]/40 grid grid-cols-2 gap-2">
+        {/* Action Buttons — Liquid Glass Capsules */}
+        <div className="mt-5 pt-3 border-t border-[#90CAF9]/40 grid grid-cols-2 gap-2.5">
           <Link
             href={previewUrl}
-            className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-white/90 border border-[#90CAF9] hover:bg-[#E3F2FD] hover:text-[#0D47A1] text-xs font-bold text-[#0D47A1] transition-colors min-h-[44px]"
+            className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-full bg-white/90 border border-white hover:bg-white hover:text-[#0D47A1] text-xs font-bold text-[#0D47A1] transition-all min-h-[44px] shadow-xs hover:shadow-md"
           >
             <span>Live Demo</span>
             <ExternalLink className="w-3.5 h-3.5" />
@@ -106,7 +106,7 @@ export function DesignCard({
           <button
             type="button"
             onClick={() => setModalOpen(true)}
-            className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-[#2196F3] hover:bg-[#0D47A1] text-xs font-bold text-white transition-all shadow-md shadow-[#2196F3]/25 min-h-[44px]"
+            className="liquid-button-primary flex items-center justify-center gap-1.5 py-2.5 px-3 text-xs font-bold text-white transition-all min-h-[44px]"
           >
             <span>Get Design</span>
             <ArrowRight className="w-3.5 h-3.5" />
