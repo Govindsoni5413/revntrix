@@ -9,6 +9,7 @@ import {
   Sparkles,
   MessageSquare,
   Wand2,
+  Lock,
 } from "lucide-react";
 import { DesignRecord, NICHES } from "@/lib/design-registry";
 import { ReadyMadeModal } from "@/components/shared/ReadyMadeModal";
@@ -42,40 +43,41 @@ export function DesignFrame({
   );
 
   return (
-    <div className="min-h-screen bg-[#E3F2FD] text-[#0A2E6B] flex flex-col font-sans">
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans">
       {/* Top Interactive Control Bar */}
-      <header className="sticky top-0 z-50 bg-[#E3F2FD]/95 backdrop-blur-md border-b border-[#90CAF9] px-4 py-3 flex flex-wrap items-center justify-between gap-3 shadow-md">
-        {/* Left: Back & Breadcrumb */}
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/90 px-4 py-2.5 flex flex-wrap items-center justify-between gap-3 shadow-sm text-slate-900">
+        {/* Left: Back to Catalog & Breadcrumb */}
         <div className="flex items-center gap-3">
           <Link
             href={`/${niche?.slug || ""}`}
-            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-[#D9EDFC] border border-[#90CAF9] text-xs font-bold text-[#0D47A1] transition-colors min-h-[44px]"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-semibold text-slate-800 transition-colors min-h-[40px] touch-interactive"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Catalog</span>
           </Link>
+
           <div className="flex flex-col">
             <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#2196F3]/15 text-[#0D47A1] border border-[#2196F3]/30">
+              <span className="px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-sky-100 text-sky-700 border border-sky-200">
                 {design.id}
               </span>
-              <span className="text-sm font-bold text-[#0D47A1]">{design.name}</span>
+              <span className="text-sm font-bold text-slate-900">{design.name}</span>
             </div>
-            <span className="text-[11px] text-[#3A608F] hidden sm:block">
-              {niche?.name} • Semi-Functional Preview
+            <span className="text-[11px] text-slate-500 hidden sm:block">
+              {niche?.name} • Live Interactive Showcase
             </span>
           </div>
         </div>
 
         {/* Center: Device Viewport Switcher */}
-        <div className="hidden md:flex items-center bg-white p-1 rounded-xl border border-[#90CAF9]">
+        <div className="hidden md:flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200">
           <button
             type="button"
             onClick={() => setViewport("desktop")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               viewport === "desktop"
-                ? "bg-[#0D47A1] text-white shadow-sm"
-                : "text-[#3A608F] hover:text-[#0D47A1]"
+                ? "bg-white text-sky-600 shadow-xs border border-slate-200"
+                : "text-slate-600 hover:text-slate-900"
             }`}
           >
             <Monitor className="w-3.5 h-3.5" />
@@ -84,10 +86,10 @@ export function DesignFrame({
           <button
             type="button"
             onClick={() => setViewport("mobile")}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               viewport === "mobile"
-                ? "bg-[#0D47A1] text-white shadow-sm"
-                : "text-[#3A608F] hover:text-[#0D47A1]"
+                ? "bg-white text-sky-600 shadow-xs border border-slate-200"
+                : "text-slate-600 hover:text-slate-900"
             }`}
           >
             <Smartphone className="w-3.5 h-3.5" />
@@ -100,18 +102,18 @@ export function DesignFrame({
           <button
             type="button"
             onClick={() => setCustomOpen(true)}
-            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white hover:bg-[#D9EDFC] border border-[#90CAF9] text-xs font-bold text-[#0D47A1] transition-all min-h-[44px]"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200 text-xs font-semibold text-slate-800 transition-all min-h-[40px] cursor-pointer"
           >
-            <Wand2 className="w-3.5 h-3.5 text-[#2196F3]" />
+            <Wand2 className="w-3.5 h-3.5 text-sky-600" />
             <span>Custom Brief</span>
           </button>
 
           <button
             type="button"
             onClick={() => setReadyMadeOpen(true)}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#2196F3] hover:bg-[#0D47A1] text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md shadow-[#2196F3]/25 min-h-[44px]"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-xs font-semibold uppercase tracking-wider transition-all shadow-sm shadow-sky-600/25 min-h-[40px] shimmer-trigger cursor-pointer"
           >
-            <Sparkles className="w-3.5 h-3.5 fill-current text-[#90CAF9]" />
+            <Sparkles className="w-3.5 h-3.5 fill-current text-white" />
             <span>Get This Design</span>
           </button>
 
@@ -119,7 +121,7 @@ export function DesignFrame({
             href={directWhatsAppUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2.5 rounded-xl bg-white hover:bg-[#D9EDFC] border border-[#90CAF9] text-[#0D47A1] hover:text-[#2196F3] transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+            className="p-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white transition-colors min-h-[40px] min-w-[40px] flex items-center justify-center shadow-xs"
             title="Chat about this design on WhatsApp"
           >
             <MessageSquare className="w-4 h-4 fill-current" />
@@ -128,30 +130,30 @@ export function DesignFrame({
       </header>
 
       {/* Viewport Frame Container */}
-      <main className="flex-1 flex justify-center items-start overflow-x-hidden p-0 md:p-4 bg-[#D4E9FA]">
+      <main className="flex-1 flex justify-center items-start overflow-x-hidden p-0 md:p-4 bg-slate-900">
         {viewport === "mobile" ? (
-          <div className="w-[390px] min-h-[844px] my-4 rounded-[40px] border-[10px] border-[#0A2E6B] shadow-2xl overflow-hidden bg-white relative">
-            {/* Phone Speaker Notch */}
-            <div className="absolute top-2 left-1/2 -translate-x-1/2 w-28 h-4 bg-[#0A2E6B] rounded-full z-50 pointer-events-none" />
-            <div className="pt-6 h-full overflow-y-auto">{children}</div>
+          <div className="w-[390px] min-h-[844px] my-4 rounded-[44px] border-[10px] border-slate-800 shadow-2xl overflow-hidden bg-white relative">
+            {/* Phone Dynamic Island / Speaker Notch */}
+            <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-24 h-4 bg-black rounded-full z-50 pointer-events-none" />
+            <div className="pt-8 h-full overflow-y-auto">{children}</div>
           </div>
         ) : (
-          <div className="w-full max-w-full rounded-none md:rounded-2xl overflow-hidden shadow-2xl border-0 md:border border-[#90CAF9] bg-white">
+          <div className="w-full max-w-full rounded-none md:rounded-2xl overflow-hidden shadow-2xl border-0 md:border border-slate-800 bg-white">
             {children}
           </div>
         )}
       </main>
 
-      {/* Sticky Bottom Bar for Mobile Device View */}
-      <div className="sticky bottom-0 z-40 bg-[#E3F2FD]/95 backdrop-blur-md border-t border-[#90CAF9] p-3 flex items-center justify-between sm:hidden shadow-lg">
+      {/* Sticky Bottom Bar for Mobile Device Screen Viewports */}
+      <div className="sticky bottom-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 p-3 flex items-center justify-between sm:hidden shadow-lg text-slate-900">
         <div className="flex flex-col">
-          <span className="text-xs font-bold text-[#0D47A1]">{design.id}</span>
-          <span className="text-[10px] text-[#3A608F]">{design.name}</span>
+          <span className="text-xs font-bold text-slate-900">{design.id}</span>
+          <span className="text-[10px] text-slate-500">{design.name}</span>
         </div>
         <button
           type="button"
           onClick={() => setReadyMadeOpen(true)}
-          className="px-4 py-2.5 rounded-xl bg-[#2196F3] text-white text-xs font-bold uppercase tracking-wider shadow-md"
+          className="px-4 py-2.5 rounded-xl bg-sky-600 text-white text-xs font-bold uppercase tracking-wider shadow-sm"
         >
           Get This Design
         </button>

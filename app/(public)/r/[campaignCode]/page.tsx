@@ -31,7 +31,6 @@ export default async function CampaignOutreachPage({ params, searchParams }: Cam
       ? (requestedNiche.toUpperCase() as NicheId)
       : "INT";
 
-  // Server-side resolution with isolated niche overrides (TRD §6)
   const presentation = await resolveCampaignPresentation(campaignCode, validNicheId);
   const designs = getDesignsByNiche(validNicheId);
   const activeNicheMeta = NICHES[validNicheId];
@@ -43,14 +42,14 @@ export default async function CampaignOutreachPage({ params, searchParams }: Cam
   );
 
   return (
-    <div className="min-h-screen bg-[#E3F2FD] text-[#0A2E6B] flex flex-col font-sans relative">
+    <div className="min-h-screen bg-white text-slate-900 flex flex-col font-sans relative antialiased">
       <Navbar
         activeNiche={validNicheId}
         businessName={presentation.businessName}
         isPersonalized={presentation.isPersonalized}
       />
 
-      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 w-full flex flex-col gap-10">
+      <main className="flex-1 max-w-[1320px] mx-auto px-4 sm:px-8 pt-20 sm:pt-24 pb-12 sm:pb-16 w-full flex flex-col gap-8">
         {/* Honest Personalized Outreach Banner */}
         <CampaignBanner
           prospectName={presentation.prospectName}
@@ -60,12 +59,12 @@ export default async function CampaignOutreachPage({ params, searchParams }: Cam
         />
 
         {/* Niche Indicator Strip */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#90CAF9]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200">
           <div>
-            <span className="text-xs font-bold text-[#2196F3] uppercase tracking-wider">
+            <span className="text-xs font-bold text-sky-600 uppercase tracking-wider">
               Niche Architecture Showcase
             </span>
-            <h3 className="text-xl sm:text-2xl font-extrabold text-[#0D47A1]">
+            <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900">
               10 Directions Curated for {activeNicheMeta?.name}
             </h3>
           </div>
@@ -74,15 +73,15 @@ export default async function CampaignOutreachPage({ params, searchParams }: Cam
             href={directWhatsAppUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#2196F3] hover:bg-[#0D47A1] text-white text-xs font-bold uppercase tracking-wider transition-all shadow-md self-start sm:self-auto min-h-[44px]"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-sm self-start sm:self-auto min-h-[44px]"
           >
-            <MessageSquare className="w-3.5 h-3.5 fill-current" />
+            <MessageSquare className="w-4 h-4 fill-current" />
             <span>Discuss This Proposal</span>
           </a>
         </div>
 
         {/* 10 Curated Designs Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {designs.map((design) => (
             <DesignCard
               key={design.id}
